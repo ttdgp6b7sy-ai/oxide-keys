@@ -2,7 +2,7 @@
 
 An 8-key macro pad with rotary encoder, OLED display, and RGB underglow, to be built entirely in Rust on the Raspberry Pi Pico W.
 
-## What It Does
+## What it will do
 - 8 Cherry MX mechanical keys for custom shortcuts
 - Metal-knurled rotary encoder for volume/scrolling
 - OLED display showing active layer
