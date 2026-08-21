@@ -21,7 +21,7 @@ Hardware is not built yet. And the cargo build will be created once I can test i
 ## Design
 - Uses a pico W as the controller.
 - firmware stack includes embedded hal, probers and rp2040 hal.
-- fullparts list is in the BOM.csv - 101 USD.
+- fullparts list is in the BOM.csv -> 102.44 USD.
 
 ## Todo
 The potential of the encoder knob in some games is something I want to explore.
