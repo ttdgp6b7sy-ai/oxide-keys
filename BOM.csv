@@ -1,11 +1,9 @@
 Part,Quantity,Price_AUD_inc_GST,Supplier,Link
-Raspberry Pi Pico W,1,9.50,Core Electronics,https://core-electronics.com.au/raspberry-pi-pico-w-wireless-wifi.html
-Cherry MX Blue Switch,8,20.80,Core Electronics,https://core-electronics.com.au/cherry-mx-switch.html
-EC11 Rotary Encoder Module,1,4.95,Core Electronics,https://core-electronics.com.au/ec11-rotary-encoder-module.html
+Raspberry Pi Pico W,1,9.90,Core Electronics,https://core-electronics.com.au/raspberry-pi-pico-w-wireless-wifi.html
+Cherry MX Blue Switch,8,19.60,Core Electronics,https://core-electronics.com.au/cherry-mx-switch.html
+EC11 Rotary Encoder Module,1,4.85,Core Electronics,https://core-electronics.com.au/ec11-rotary-encoder-module.html
 XUMIUZIY 2.4inch TFT LCD Display Touch Screen Module (ILI9341),1,16.80,Amazon AU,https://www.amazon.com.au/dp/B0FFVDD2FQ
-NeoPixel Stick 8x WS2812 RGB,1,12.00,Core Electronics,https://core-electronics.com.au/neopixel-stick-8-x-ws2812-5050-rgb-led-with-integrated-drivers.html
-Jumper Wire Kit 140pcs,1,7.95,Core Electronics,https://core-electronics.com.au/jumper-wire-kit-for-solderless-breadboard-140-pcs.html
-Professional Breadboard 400 Tie,1,9.55,Core Electronics,https://core-electronics.com.au/professional-solderless-breadboard-400-tie-points-metal-backing-plate.html
+NeoPixel RGBW Mini Button PCB - Pack of 10,1,8.50,Core Electronics,https://core-electronics.com.au/neopixel-rgbw-mini-button-pcb-pack-of-10.html
 Micro USB Cable 1m,1,1.50,Core Electronics,https://core-electronics.com.au/usb-cable-type-a-to-micro-b-1m.html
 Rubber Bumper Feet (2 packs),2,3.80,Core Electronics,https://core-electronics.com.au/little-rubber-bumper-feet-pack-of-4.html
 Aolidsive M2 Nylon Standoff Kit 180pcs,1,15.00,Amazon AU,https://www.amazon.com.au/Aolidsive-Standoff-Assortment-Motherboard-Projects/dp/B0GYBV21GF
@@ -13,5 +11,7 @@ Black Gloss Acrylic Sheet A5 3mm,1,18.72,Amazon AU,https://www.amazon.com.au/Per
 Metal Knurled Encoder Knob 2pcs,1,7.34,Amazon AU,https://www.amazon.com.au/SENRISE-Knurled-Encoder-Control/dp/B07Q9PMSZF
 Fulillanlun 37pcs PBT DSA Blank Keycaps (White),1,15.99,Amazon AU,https://www.amazon.com.au/Fulillanlun-Keycaps-Mechanical-Keyboard-Keybord/dp/B0G1YWJ15D
 Piezo Buzzer (passive, PWM-driven),1,0.34,Core Electronics,https://core-electronics.com.au/piezo-buzzer.html
-Cordless USB Rechargeable Soldering Iron Kit (3-speed temp),1,19.99,Amazon AU,https://www.amazon.com.au/Soldering-Iron-Kit-Rechargeable-Temperature/dp/B0DYH7QMYK
-Total,,163.23,,$117 USD,,
+Cordless USB Rechargeable Soldering Iron Kit (3-speed temp),1,25.00,Amazon AU,https://www.amazon.com.au/Soldering-Iron-Kit-Rechargeable-Temperature/dp/B0DYH7QMYK
+Polymer Lithium Ion Battery (LiPo) 3.7V 1100mAh,1,8.65,Core Electronics,https://core-electronics.com.au/polymer-lithium-ion-battery-1000mah-38458.html
+TP4056 1A Lithium Battery Charging Board (Type-C, w/ protection),1,8.75,Amazon AU,https://www.amazon.com.au/TP4056-Lithium-Battery-Charging-Protection/dp/B0C589VTB6
+Total,,164.74,,
