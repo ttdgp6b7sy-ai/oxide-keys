@@ -1,27 +1,25 @@
 Part,Quantity,Price_AUD_inc_GST,Price_USD_approx,Supplier,Link
 Raspberry Pi Pico W,1,9.90,7.11,Core Electronics,https://core-electronics.com.au/raspberry-pi-pico-w-wireless-wifi.html
-Cherry MX Blue Switch,8,19.60,14.07,Core Electronics,https://core-electronics.com.au/cherry-mx-switch.html
-EC11 Rotary Encoder Module,1,4.85,3.48,Core Electronics,https://core-electronics.com.au/ec11-rotary-encoder-module.html
-XUMIUZIY 2.4inch TFT LCD Display Touch Screen Module (ILI9341),1,16.80,12.06,Amazon AU,https://www.amazon.com.au/dp/B0FFVDD2FQ
-NeoPixel RGBW Mini Button PCB - Pack of 10,1,8.50,6.10,Core Electronics,https://core-electronics.com.au/neopixel-rgbw-mini-button-pcb-pack-of-10.html
+Cherry MX Blue Switch (PCB-mount),8,19.60,14.07,Core Electronics,https://core-electronics.com.au/cherry-mx-switch.html
+"EC11 Rotary Encoder, bare THT, vertical, 20mm shaft (NOT a breakout module - verify before buying)",1,4.85,3.48,Core Electronics,https://core-electronics.com.au/ec11-rotary-encoder-module.html
+XUMIUZIY 2.4inch TFT LCD Display Touch Screen Module (ILI9341) - 14-pin header confirmed compatible,1,16.80,12.06,Amazon AU,https://www.amazon.com.au/dp/B0FFVDD2FQ
+"SK6812MINI-E bare SMD RGBW LED x8 (NOT the round breakout puck - verify product photos before buying)",1,8.50,6.10,Core Electronics,https://core-electronics.com.au/neopixel-rgbw-mini-button-pcb-pack-of-10.html
 Micro USB Cable 1m,1,1.50,1.08,Core Electronics,https://core-electronics.com.au/usb-cable-type-a-to-micro-b-1m.html
 Rubber Bumper Feet (2 packs),2,3.80,2.73,Core Electronics,https://core-electronics.com.au/little-rubber-bumper-feet-pack-of-4.html
 Aolidsive M2 Nylon Standoff Kit 180pcs,1,15.00,10.77,Amazon AU,https://www.amazon.com.au/Aolidsive-Standoff-Assortment-Motherboard-Projects/dp/B0GYBV21GF
 Clear Acrylic Sheet A5 3mm (base + lid panels),2,8.96,6.43,Amazon AU,https://www.amazon.com.au/Clear-Acrylic-Sheet-3mm-Thickness/dp/B0F4PN42ZM
 Metal Knurled Encoder Knob 2pcs,1,7.34,5.27,Amazon AU,https://www.amazon.com.au/SENRISE-Knurled-Encoder-Control/dp/B07Q9PMSZF
 Fulillanlun 37pcs PBT DSA Blank Keycaps (White),1,15.99,11.48,Amazon AU,https://www.amazon.com.au/Fulillanlun-Keycaps-Mechanical-Keyboard-Keybord/dp/B0G1YWJ15D
-"Piezo Buzzer (passive, PWM-driven)",1,0.34,0.24,Core Electronics,https://core-electronics.com.au/piezo-buzzer.html
+"Piezo Buzzer (passive, PWM-driven, verify 7.6mm pin pitch matches BZ1 footprint)",1,0.34,0.24,Core Electronics,https://core-electronics.com.au/piezo-buzzer.html
 Polymer Lithium Ion Battery (LiPo) 3.7V 1100mAh,1,8.65,6.21,Core Electronics,https://core-electronics.com.au/polymer-lithium-ion-battery-1000mah-38458.html
-TP4056 1A Lithium Battery Charging Board (Type-C w/ protection),1,8.75,6.28,Amazon AU,https://www.amazon.com.au/TP4056-Lithium-Battery-Charging-Protection/dp/B0C589VTB6
+TP4056-42-ESOP8 SMD IC (matches PCB footprint - was breakout module),1,1.00,0.70,LCSC,https://www.lcsc.com/
 AP2112K-3.3TRG1 LDO Regulator (SOT-23-5) 1A 3.3V,1,0.20,0.14,LCSC (component cost only - see note),https://www.lcsc.com/product-detail/C51118.html
-330 Ohm 0.5W Metal Film Resistor - Pack of 8,1,0.85,0.61,Jaycar,https://www.jaycar.com.au/330-ohm-0-5-watt-metal-film-resistors-pack-of-8/p/RR0560
-1uF 50VDC Monolithic Capacitor (qty 2 - LDO input + output per datasheet),2,0.75,0.54,Jaycar,https://www.jaycar.com.au/1uf-50vdc-monolithic-capacitor/p/RC5499
-2 Way 5.08mm PCB Mount Screw Terminal Block,1,1.35,0.97,Jaycar,https://www.jaycar.com.au/2-way-5-08mm-weidmuller-pcb-mount-screw-terminal/p/HM3130
+330 Ohm 0805 SMD Resistor x2 (R3/R4 only - not one per LED),1,0.20,0.14,LCSC,https://www.lcsc.com/
+1uF 0805 X7R SMD Capacitor x2 (C2/C4 - matches PCB footprint),2,0.25,0.18,LCSC,https://www.lcsc.com/
 Prestige 15x25x0.5mm Decorative Brass Hinges - 2 Pack (screen fold hinge),1,7.94,5.70,Bunnings,https://www.bunnings.com.au/prestige-15-x-25-x-0-5mm-decorative-brass-hinges_p3968293
 30AWG Silicone Hookup Wire - 5 colours - 10m rolls (for hinge/LCD wiring),1,15.95,11.45,Jaycar,https://www.jaycar.com.au/30awg-silcon-hookup-wire-5-colours-10m/p/WH3026
 2.54mm Breakaway Pin Header Strip - Male+Female 40-way (LCD hinge connector + Pico socket),1,2.95,2.12,Jaycar,https://www.jaycar.com.au/pcb-pins-and-headers/c/1HJ
-JLCPCB Custom PCB Fab - 5x boards 2-layer under 100x100mm,1,3.00,2.15,JLCPCB,https://jlcpcb.com/
-PARTS + PCB TOTAL (excl. shipping - self-funded separately),,161.32,115.81,,
-NOTE: 470uF electrolytic cap removed - replaced with 2nd 1uF cap to correctly match AP2112K LDO input+output requirement per datasheet. Double-check exact datasheet values before ordering.,,,,,
+JLCPCB Custom PCB Fab - 4-layer, actual paid price incl. DHL Express shipping,1,16.00,11.00,JLCPCB,https://jlcpcb.com/
+PARTS + PCB TOTAL (PCB line includes its shipping; all other lines exclude shipping),,163.57,117.40,,
 "--- Optional / covered separately by Stardance grant if approved, not counted above ---",,,,,
 Cordless USB Rechargeable Soldering Iron Kit (3-speed temp) - or use Stardance's $18 soldering iron grant instead,1,25.00,17.95,Amazon AU,https://www.amazon.com.au/Soldering-Iron-Kit-Rechargeable-Temperature/dp/B0DYH7QMYK
