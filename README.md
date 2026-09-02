@@ -1,16 +1,16 @@
 # Oxide Keys
 
-A project with a display that has the ability to play very simple games to kill time and also a fun way to integrate Rust (the language I am learning).
+A project with 8 keys and a display, which has the ability to play very simple games to kill time and also a fun way to integrate Rust (the language I am learning).
 The hardware is mainly composed of an 8-key mini game player with rotary encoder, LCD display, and RGB underglow on the Raspberry Pi Pico W, where I aim to include as much Rust as I can in this project.
 
-![Oxide Keys Wiring Diagram](oxidekeys_wirediagram.drawio.png)
+![Oxide Keys Pcb Board](docs/images/oxidekeyspcb.png)
 
 ## Demo
-No physical build yet but the image above shows a diagram of the wiring.
+No physical build yet but the image above shows the PCB board to be made.
 
 
 ## Quickstart
-Hardware is not built yet. And the cargo build will be created once I can test it against the hardware.
+Hardware was made on KiCad, with the PCB board and schematics. And the cargo build will be created once I can test it against the hardware. ALso the Cad enclosure utilises the mount standoffs instead of being 3d.
 
 
 ## Features that I will implement
@@ -22,6 +22,7 @@ Hardware is not built yet. And the cargo build will be created once I can test i
 - Uses a pico W as the controller.
 - firmware stack includes embedded hal, probers and rp2040 hal.
 - fullparts list is in the BOM.csv -> 94 USD.
+- the cad enclosure that I am incorporating uses a 2d laser cut acrylic with mounted standoffs in between. Meaning that I can still incorporate cool aesthetics with the layer being transparent on purpose.
 
 ## Todo
 The potential of the encoder knob in some games is something I want to explore.
