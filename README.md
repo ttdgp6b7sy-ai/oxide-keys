@@ -1,7 +1,7 @@
 # Oxide Keys
 
-A project with 8 keys and a display, which has the ability to play very simple games to kill time and also a fun way to integrate Rust (the language I am learning).
-The hardware is mainly composed of an 8-key mini game player with rotary encoder, LCD display, and RGB underglow on the Raspberry Pi Pico W, where I aim to include as much Rust as I can in this project.
+A mini game console with 8 keys and a display, which has the ability to play very simple games to kill time and also a fun way to integrate Rust (the language I am learning).
+The hardware is mainly composed of an 8-key mini game player with rotary encoder, LCD display that folds on a hinge, and RGB underglow on the Raspberry Pi Pico W, where I aim to include as much Rust as I can in this project.
 
 ![Oxide Keys Pcb Board](docs/images/oxidekeyspcb.png)
 
@@ -10,7 +10,7 @@ No physical build yet but the image above shows the PCB board to be made.
 
 
 ## Quickstart
-Hardware was made on KiCad, with the PCB board and schematics. And the cargo build will be created once I can test it against the hardware. ALso the Cad enclosure utilises the mount standoffs instead of being 3d.
+Hardware was made on KiCad, with the PCB board and schematics, you can open hardware/pcb to view this. The cargo build was made from firmware and can be cargo built, cd firmware && cargo build. Also the Cad enclosure utilises the mount standoffs instead of being 3d in enclosure/
 
 
 ## Features that I will implement
@@ -20,15 +20,16 @@ Hardware was made on KiCad, with the PCB board and schematics. And the cargo bui
 
 ## Design
 - Uses a pico W as the controller.
-- firmware stack includes embedded hal, probers and rp2040 hal.
-- fullparts list is in the BOM.csv -> 94 USD.
+- firmware stack includes embedded hal, probers and rp2040 hal. It lives in firmware/ and builds with cargo build
+- display sits on a hinge now
+- fullparts list is in the BOM.csv -> 117 USD.
 - the cad enclosure that I am incorporating uses a 2d laser cut acrylic with mounted standoffs in between. Meaning that I can still incorporate cool aesthetics with the layer being transparent on purpose.
 
 ## Todo
 The potential of the encoder knob in some games is something I want to explore.
 
 ## How it works
-Will explain once started.
+Will explain once started build.
 
 ## Credits
-WIP.
+credits to stardance for inspo + help.
