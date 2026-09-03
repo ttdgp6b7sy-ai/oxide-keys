@@ -1,9 +1,9 @@
 Part,Quantity,Price_AUD_inc_GST,Price_USD_approx,Supplier,Link
 Raspberry Pi Pico W,1,9.90,7.11,Core Electronics,https://core-electronics.com.au/raspberry-pi-pico-w-wireless-wifi.html
 Cherry MX Blue Switch (PCB-mount),8,19.60,14.07,Core Electronics,https://core-electronics.com.au/cherry-mx-switch.html
-"EC11 Rotary Encoder, bare THT, vertical, 20mm shaft - the PCB footprint expects this exact physical variant, not a breakout module. Confirm against product photos at purchase time.",1,4.85,3.48,Core Electronics,https://core-electronics.com.au/ec11-rotary-encoder-module.html
+"Rotary Encoder Switch with Pushbutton - PCB-mount bare component (3 terminals for rotary + 2 for integrated pushbutton, 2 mounting lugs), NOT a breakout board. Physical footprint (hole spacing/lug positions) not independently verified against the exact PCB footprint - recommend a final check against your KiCad PCB footprint once ordered.",1,10.25,7.36,Jaycar,https://www.jaycar.com.au/rotary-encoder-switch-with-pushbutton/p/SR1230
 XUMIUZIY 2.4inch TFT LCD Display Touch Screen Module (ILI9341) - 14-pin header confirmed compatible,1,16.80,12.06,Amazon AU,https://www.amazon.com.au/dp/B0FFVDD2FQ
-"SK6812MINI-E bare SMD RGBW LED x8 - the PCB footprint expects this exact bare-SMD variant, not the round breakout puck. Confirm against product photos at purchase time.",1,8.50,6.10,Core Electronics,https://core-electronics.com.au/neopixel-rgbw-mini-button-pcb-pack-of-10.html
+"SK6812MINI-E bare SMD RGBW LED x8 - genuine bare component (OPSCO Optoelectronics), matches the exact manufacturer part named in the KiCad library symbol. Recommend ordering a few spares (10-12) given hand-soldering SMD LEDs has real breakage risk.",8,0.40,0.29,LCSC,https://www.lcsc.com/product-detail/C5149201.html
 Micro USB Cable 1m,1,1.50,1.08,Core Electronics,https://core-electronics.com.au/usb-cable-type-a-to-micro-b-1m.html
 Rubber Bumper Feet (2 packs),2,3.80,2.73,Core Electronics,https://core-electronics.com.au/little-rubber-bumper-feet-pack-of-4.html
 Aolidsive M2 Nylon Standoff Kit 180pcs,1,15.00,10.77,Amazon AU,https://www.amazon.com.au/Aolidsive-Standoff-Assortment-Motherboard-Projects/dp/B0GYBV21GF
@@ -21,6 +21,6 @@ Prestige 15x25x0.5mm Decorative Brass Hinges - 2 Pack (screen fold hinge),1,7.94
 2.54mm Breakaway Pin Header Strip - Male+Female 40-way (LCD hinge connector + Pico socket),1,2.95,2.12,Jaycar,https://www.jaycar.com.au/pcb-pins-and-headers/c/1HJ
 "JLCPCB Custom PCB Fab - 4-layer, actual paid price incl. DHL Express shipping",1,16.00,11.00,JLCPCB,https://jlcpcb.com/
 1N4148/1N914 Signal Diode - Pack of 5 (anti-ghosting fix for shared SW1/SW5 node - bodge onto one switch leg),1,0.95,0.68,Jaycar,https://www.jaycar.com.au/1n4148-1n914-signal-diode-pack-of-5/p/ZR1100
-PARTS + PCB TOTAL (PCB line includes its shipping; all other lines exclude shipping),,166.67,119.14,,
+PARTS + PCB TOTAL (PCB line includes its shipping; all other lines exclude shipping),,163.97,117.21,,
 "--- Optional / covered separately by Stardance grant if approved, not counted above ---",,,,,
 Cordless USB Rechargeable Soldering Iron Kit (3-speed temp) - or use Stardance's $18 soldering iron grant instead,1,25.00,17.95,Amazon AU,https://www.amazon.com.au/Soldering-Iron-Kit-Rechargeable-Temperature/dp/B0DYH7QMYK
