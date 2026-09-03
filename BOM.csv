@@ -1,26 +1,27 @@
-Part,Quantity,Price_AUD_inc_GST,Price_USD_approx,Supplier,Link
-Raspberry Pi Pico W,1,9.90,7.11,Core Electronics,https://core-electronics.com.au/raspberry-pi-pico-w-wireless-wifi.html
-Cherry MX Blue Switch (PCB-mount),8,19.60,14.07,Core Electronics,https://core-electronics.com.au/cherry-mx-switch.html
-"Rotary Encoder Switch with Pushbutton - PCB-mount bare component (3 terminals for rotary + 2 for integrated pushbutton, 2 mounting lugs), NOT a breakout board. Footprint match verified this session: pcbfirstdesign.kicad_pcb uses RotaryEncoder_Alps_EC11E-Switch_Vertical_H20mm for RE1 (5x pin holes Ø1mm, 2.5mm A-C-B pitch, 5mm S1/S2 switch-pin pitch, 2 mounting lugs 11.2mm apart) - this matches the Alps EC11E series reference dimensions the footprint is drawn from, and matches Jaycar's own SR1230 listing (5 terminals, 2 mounting lugs). Jaycar's SR1230 datasheet/manual PDFs contain no dimensional drawing, so this is the strongest verification possible pre-arrival; confirm with calipers once the part is in hand.",1,10.25,7.36,Jaycar,https://www.jaycar.com.au/rotary-encoder-switch-with-pushbutton/p/SR1230
-XUMIUZIY 2.4inch TFT LCD Display Touch Screen Module (ILI9341) - 14-pin header confirmed compatible,1,16.80,12.06,Amazon AU,https://www.amazon.com.au/dp/B0FFVDD2FQ
-"SK6812MINI-E bare SMD RGBW LED x8 - genuine bare component (OPSCO Optoelectronics), matches the exact manufacturer part named in the KiCad library symbol. Recommend ordering a few spares (10-12) given hand-soldering SMD LEDs has real breakage risk.",8,0.40,0.29,LCSC,https://www.lcsc.com/product-detail/C5149201.html
-Micro USB Cable 1m,1,1.50,1.08,Core Electronics,https://core-electronics.com.au/usb-cable-type-a-to-micro-b-1m.html
-Rubber Bumper Feet (2 packs),2,3.80,2.73,Core Electronics,https://core-electronics.com.au/little-rubber-bumper-feet-pack-of-4.html
-Aolidsive M2 Nylon Standoff Kit 180pcs,1,15.00,10.77,Amazon AU,https://www.amazon.com.au/Aolidsive-Standoff-Assortment-Motherboard-Projects/dp/B0GYBV21GF
-Clear Acrylic Sheet A5 3mm (base + lid panels),2,8.96,6.43,Amazon AU,https://www.amazon.com.au/Clear-Acrylic-Sheet-3mm-Thickness/dp/B0F4PN42ZM
-Metal Knurled Encoder Knob 2pcs,1,7.34,5.27,Amazon AU,https://www.amazon.com.au/SENRISE-Knurled-Encoder-Control/dp/B07Q9PMSZF
-Fulillanlun 37pcs PBT DSA Blank Keycaps (White),1,15.99,11.48,Amazon AU,https://www.amazon.com.au/Fulillanlun-Keycaps-Mechanical-Keyboard-Keybord/dp/B0G1YWJ15D
-"Piezo Buzzer (passive, PWM-driven, pin pitch confirmed 7.6mm against the real BZ1 PCB footprint - GPIO15 confirmed as the drive pin via KiCad net trace)",1,0.34,0.24,Core Electronics,https://core-electronics.com.au/piezo-buzzer.html
-Polymer Lithium Ion Battery (LiPo) 3.7V 1100mAh,1,8.65,6.21,Core Electronics,https://core-electronics.com.au/polymer-lithium-ion-battery-1000mah-38458.html
-TP4056-42-ESOP8 SMD IC (matches PCB footprint - was breakout module),1,1.00,0.70,LCSC,https://www.lcsc.com/
-AP2112K-3.3TRG1 LDO Regulator (SOT-23-5) 1A 3.3V,1,0.20,0.14,LCSC (component cost only - see note),https://www.lcsc.com/product-detail/C51118.html
-330 Ohm 0805 SMD Resistor x2 (R3/R4 only - not one per LED),1,0.20,0.14,LCSC,https://www.lcsc.com/
-1uF 0805 X7R SMD Capacitor x2 (C2/C4 - matches PCB footprint),2,0.25,0.18,LCSC,https://www.lcsc.com/
-Prestige 15x25x0.5mm Decorative Brass Hinges - 2 Pack (screen fold hinge),1,7.94,5.70,Bunnings,https://www.bunnings.com.au/prestige-15-x-25-x-0-5mm-decorative-brass-hinges_p3968293
-30AWG Silicone Hookup Wire - 5 colours - 10m rolls (for hinge/LCD wiring),1,15.95,11.45,Jaycar,https://www.jaycar.com.au/30awg-silcon-hookup-wire-5-colours-10m/p/WH3026
-2.54mm Breakaway Pin Header Strip - Male+Female 40-way (LCD hinge connector + Pico socket),1,2.95,2.12,Jaycar,https://www.jaycar.com.au/pcb-pins-and-headers/c/1HJ
-"JLCPCB Custom PCB Fab - 4-layer, actual paid price incl. DHL Express shipping",1,16.00,11.00,JLCPCB,https://jlcpcb.com/
-1N4148/1N914 Signal Diode - Pack of 5 (anti-ghosting fix for shared SW1/SW5 node - bodge onto one switch leg),1,0.95,0.68,Jaycar,https://www.jaycar.com.au/1n4148-1n914-signal-diode-pack-of-5/p/ZR1100
-PARTS + PCB TOTAL (PCB line includes its shipping; all other lines exclude shipping),,163.97,117.21,,
-"--- Optional / covered separately by Stardance grant if approved, not counted above ---",,,,,
-Cordless USB Rechargeable Soldering Iron Kit (3-speed temp) - or use Stardance's $18 soldering iron grant instead,1,25.00,17.95,Amazon AU,https://www.amazon.com.au/Soldering-Iron-Kit-Rechargeable-Temperature/dp/B0DYH7QMYK
+Part,Quantity,Price_AUD,Price_USD,Supplier,Link,Group,Shipping
+Raspberry Pi Pico W,1,9.90,7.11,Core Electronics,https://core-electronics.com.au/raspberry-pi-pico-w-wireless-wifi.html,Core Electronics,Express Post
+Cherry MX Blue Switch (PCB-mount),8,19.60,14.07,Core Electronics,https://core-electronics.com.au/cherry-mx-switch.html,Core Electronics,Express Post
+Micro USB Cable 1m,1,1.50,1.08,Core Electronics,https://core-electronics.com.au/usb-cable-type-a-to-micro-b-1m.html,Core Electronics,Express Post
+Rubber Bumper Feet,2,3.80,2.73,Core Electronics,https://core-electronics.com.au/little-rubber-bumper-feet-pack-of-4.html,Core Electronics,Express Post
+Piezo Buzzer,1,0.34,0.24,Core Electronics,https://core-electronics.com.au/piezo-buzzer.html,Core Electronics,Express Post
+LiPo Battery 3.7V 1100mAh,1,8.65,6.21,Core Electronics,https://core-electronics.com.au/polymer-lithium-ion-battery-1000mah-38458.html,Core Electronics,Express Post (~$12 for whole group)
+Rotary Encoder Switch (SR1230),1,10.25,7.36,Jaycar,https://www.jaycar.com.au/rotary-encoder-switch-with-pushbutton/p/SR1230,Jaycar,Click & Collect
+Silicone Hookup Wire 10m (5 colours),1,15.95,11.45,Jaycar,https://www.jaycar.com.au/30awg-silcon-hookup-wire-5-colours-10m/p/WH3026,Jaycar,Click & Collect
+Pin Header Strip 40-way (M+F),1,2.95,2.12,Jaycar,https://www.jaycar.com.au/pcb-pins-and-headers/c/1HJ,Jaycar,Click & Collect
+1N4148 Diode Pack (5x),1,0.95,0.68,Jaycar,https://www.jaycar.com.au/1n4148-1n914-signal-diode-pack-of-5/p/ZR1100,Jaycar,Click & Collect
+"2.4"" TFT LCD Touch Display (ILI9341)",1,17.50,12.56,Zaitronics,https://zaitronics.com.au/products/2-4-tft-lcd-touch-screen-display-stylus-240x320,Zaitronics,AusPost Express (~$13)
+M2 Nylon Standoff Kit (180pc),1,15.00,10.77,Amazon AU,https://www.amazon.com.au/Aolidsive-Standoff-Assortment-Motherboard-Projects/dp/B0GYBV21GF,Amazon AU,Check Prime at checkout
+Clear Acrylic Sheet A5 3mm,2,8.96,6.43,Amazon AU,https://www.amazon.com.au/Clear-Acrylic-Sheet-3mm-Thickness/dp/B0F4PN42ZM,Amazon AU,Prime (confirmed FBA)
+Knurled Encoder Knob (2pc),1,7.34,5.27,Amazon AU,https://www.amazon.com.au/SENRISE-Knurled-Encoder-Control/dp/B07Q9PMSZF,Amazon AU,Check Prime at checkout
+PBT Blank Keycaps (37pc),1,15.99,11.48,Amazon AU,https://www.amazon.com.au/Fulillanlun-Keycaps-Mechanical-Keyboard-Keybord/dp/B0G1YWJ15D,Amazon AU,Check Prime at checkout
+SK6812MINI-E RGBW LED (x15),15,1.70,1.21,LCSC,https://www.lcsc.com/product-detail/C5149201.html,LCSC,DHL Express (required)
+TP4056 Li-ion Charger IC,1,1.00,0.70,LCSC,https://www.lcsc.com/,LCSC,DHL Express (required)
+AP2112K-3.3 LDO Regulator,1,0.20,0.14,LCSC,https://www.lcsc.com/product-detail/C51118.html,LCSC,DHL Express (required)
+330 Ohm 0805 Resistor (x2),1,0.20,0.14,LCSC,https://www.lcsc.com/,LCSC,DHL Express (required)
+1uF 0805 Capacitor (x2),2,0.25,0.18,LCSC,https://www.lcsc.com/,LCSC,DHL Express (required)
+LCSC Shipping (DHL Express),1,7.00,5.03,LCSC,https://www.lcsc.com/,LCSC,As given - confirm against your actual LCSC cart
+Brass Hinges (2-pack),1,7.94,5.70,Bunnings,https://www.bunnings.com.au/prestige-15-x-25-x-0-5mm-decorative-brass-hinges_p3968293,Bunnings,Click & Collect
+JLCPCB 4-Layer PCB Fab,1,4.00,2.75,JLCPCB,https://jlcpcb.com/,JLCPCB,
+PARTS + PCB TOTAL (incl. LCSC shipping),,160.97,115.41,,,,
+"--- Optional, not counted above ---",,,,,,,
+Soldering Iron Kit (optional),1,25.00,17.95,Amazon AU,https://www.amazon.com.au/Soldering-Iron-Kit-Rechargeable-Temperature/dp/B0DYH7QMYK,Optional,
