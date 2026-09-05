@@ -26,12 +26,11 @@ const XTAL_FREQ_HZ: u32 = 12_000_000;
 
 #[rp2040_hal::entry]
 fn main() -> ! {
-    let mut peripherals = pac::Peripherals::take()
-        .expect("RP2040 peripherals have already been taken");
+    let mut peripherals = pac::Peripherals::take().unwrap();
 
     let mut watchdog = hal::Watchdog::new(peripherals.WATCHDOG);
 
-    // clock setup, depends on the board's crystal
+    // set up the clocks, this depends on the crystal on the board
     let clocks = hal::clocks::init_clocks_and_plls(
         XTAL_FREQ_HZ,
         peripherals.XOSC,
@@ -41,10 +40,9 @@ fn main() -> ! {
         &mut peripherals.RESETS,
         &mut watchdog,
     )
-    .expect("failed to initialize RP2040 clocks; verify XTAL_FREQ_HZ");
+    .expect("clock init failed");
 
-    let mut timer =
-        rp2040_hal::Timer::new(peripherals.TIMER, &mut peripherals.RESETS, &clocks);
+    let mut timer = rp2040_hal::Timer::new(peripherals.TIMER, &mut peripherals.RESETS, &clocks);
 
     let sio = hal::Sio::new(peripherals.SIO);
     let pins = hal::gpio::Pins::new(
@@ -56,7 +54,7 @@ fn main() -> ! {
 
     let mut led = pins.gpio25.into_push_pull_output();
 
-    // 8 panel switches switches.rs has the pin map
+    // the 8 switches on the panel, see switches.rs for which pin is which
     let mut switches = switches::Switches::new(
         pins.gpio0.into_pull_up_input(),
         pins.gpio1.into_pull_up_input(),
@@ -74,23 +72,21 @@ fn main() -> ! {
         pins.gpio9.into_push_pull_output(),
     );
 
-    let mut buzzer =
-        buzzer::Buzzer::new(peripherals.PWM, &mut peripherals.RESETS, pins.gpio15);
+    let mut buzzer = buzzer::Buzzer::new(peripherals.PWM, &mut peripherals.RESETS, pins.gpio15);
+    buzzer.stop(); // don't want it making noise on startup
 
-    buzzer.stop(); // stay quiet during startup
-
-    // 2.4" ili9341 on spi0, miso wired but unused
+    // 2.4" ili9341 screen on spi0, miso is wired up but don't use it
     let mut display = display::build(
         peripherals.SPI0,
         &mut peripherals.RESETS,
         clocks.peripheral_clock.freq(),
-        pins.gpio18, // SCK
-        pins.gpio19, // MOSI
-        pins.gpio16, // MISO
-        pins.gpio17, // CS
-        pins.gpio20, // DC
-        pins.gpio21, // Reset
-        pins.gpio22, // Backlight
+        pins.gpio18, // sck
+        pins.gpio19, // mosi
+        pins.gpio16, // miso
+        pins.gpio17, // cs
+        pins.gpio20, // dc
+        pins.gpio21, // reset
+        pins.gpio22, // backlight
         &mut timer,
     );
 
@@ -109,23 +105,24 @@ fn main() -> ! {
             encoder::Rot::None => {}
         }
 
-        let any_pressed = SwitchId::ALL
-            .iter()
-            .any(|&switch_id| switches.pressed(switch_id));
+        let mut any_pressed = false;
+        for switch_id in SwitchId::ALL {
+            if switches.pressed(switch_id) {
+                any_pressed = true;
+            }
+        }
 
-        // led on if any switch is pressed
+        // turn the status led on while any switch is held down
         if any_pressed {
-            led.set_high()
-                .expect("failed to set the status LED high");
+            led.set_high().unwrap();
         } else {
-            led.set_low()
-                .expect("failed to set the status LED low");
+            led.set_low().unwrap();
         }
 
         let display_changed =
             encoder_count != displayed_count || any_pressed != displayed_any_pressed;
 
-        // redraw ~5x/sec, only if something actually changed
+        // only redraw about 5 times a second, and only if something changed
         if display_changed && now_ms % 200 < 20 {
             displayed_count = encoder_count;
             displayed_any_pressed = any_pressed;
@@ -133,14 +130,16 @@ fn main() -> ! {
             display.clear(Rgb565::BLACK);
             display.text("RP2040 PANEL", 10, 10, Rgb565::GREEN);
 
-            for (index, switch_id) in SwitchId::ALL.iter().enumerate() {
-                let color = if switches.pressed(*switch_id) {
+            let mut dot_x: i32 = 20;
+            for switch_id in SwitchId::ALL {
+                let color = if switches.pressed(switch_id) {
                     Rgb565::GREEN
                 } else {
-                    Rgb565::new(15, 30, 15) // dim gray, RgbColor has no GRAY constant
+                    Rgb565::new(15, 30, 15) // dim gray, there's no gray constant
                 };
 
-                display.dot(20 + (index as i32) * 26, 35, color);
+                display.dot(dot_x, 35, color);
+                dot_x += 26;
             }
 
             display.text("ENC:", 10, 65, Rgb565::WHITE);
@@ -156,7 +155,7 @@ fn main() -> ! {
     }
 }
 
-// no heap, so format ints by hand
+// turns a number into text by hand since no_std and have no heap
 fn format_number(number: i32, buffer: &mut [u8; 8]) -> &str {
     let is_negative = number < 0;
     let mut value = number.unsigned_abs();
@@ -178,7 +177,5 @@ fn format_number(number: i32, buffer: &mut [u8; 8]) -> &str {
         buffer[index] = b'-';
     }
 
-    // always valid ascii
-    core::str::from_utf8(&buffer[index..])
-        .expect("number buffer contains only valid ASCII")
+    core::str::from_utf8(&buffer[index..]).unwrap()
 }

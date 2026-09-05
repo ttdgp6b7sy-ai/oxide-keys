@@ -2,20 +2,19 @@ use embedded_hal::digital::{InputPin, OutputPin};
 use rp2040_hal::gpio::bank0::*;
 use rp2040_hal::gpio::{FunctionSioInput, FunctionSioOutput, Pin, PullUp};
 
-// ignore changes shorter than this (button bounce)
+// how long a switch reading has to stay the same before trust it (ms)
 const DEBOUNCE_MS: u64 = 10;
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[repr(u8)]
+#[derive(Clone, Copy, PartialEq)]
 pub enum SwitchId {
-    Sw1 = 0,
-    Sw2 = 1,
-    Sw3 = 2,
-    Sw4 = 3,
-    Sw5 = 4,
-    Sw6 = 5,
-    Sw7 = 6,
-    Sw8 = 7,
+    Sw1,
+    Sw2,
+    Sw3,
+    Sw4,
+    Sw5,
+    Sw6,
+    Sw7,
+    Sw8,
 }
 
 impl SwitchId {
@@ -31,7 +30,7 @@ impl SwitchId {
     ];
 }
 
-// one switch with bounce filtering
+// one switch, with debounce logic built in
 struct DebouncedSwitch {
     on: bool,
     pending: bool,
@@ -40,16 +39,20 @@ struct DebouncedSwitch {
 
 impl DebouncedSwitch {
     fn new() -> Self {
-        Self { on: false, pending: false, changed_at: 0 }
+        DebouncedSwitch {
+            on: false,
+            pending: false,
+            changed_at: 0,
+        }
     }
 
     fn update(&mut self, raw: bool, now: u64) {
         if raw != self.pending {
-            // pin moved, restart the timer
+            // reading flipped, restart the debounce timer
             self.pending = raw;
             self.changed_at = now;
         } else if now.saturating_sub(self.changed_at) >= DEBOUNCE_MS {
-            // stable long enough now, accept it
+            // been steady long enough, go ahead and trust it
             self.on = self.pending;
         }
     }
@@ -59,14 +62,14 @@ impl DebouncedSwitch {
     }
 }
 
-// gp0 has two jobs: read sw1, or ground sw5. we swap its mode every update.
+// gp0 does double duty: most of the time it reads sw1, but for a moment
+// each update flip it to an output and pull it low so it can act as
+// the ground pin for sw5 (which gets read back over on gp1)
 enum Gpio0Mode {
     Input(Pin<Gpio0, FunctionSioInput, PullUp>),
     Output(Pin<Gpio0, FunctionSioOutput, PullUp>),
 }
 
-// gpio reads/writes on this mcu don't actually fail; the pull-up input pins
-// use Result<_, Infallible>, so unwrap() here is an assertion, not a risk
 pub struct Switches {
     gpio0: Option<Gpio0Mode>,
     gpio1: Pin<Gpio1, FunctionSioInput, PullUp>,
@@ -90,7 +93,7 @@ impl Switches {
         pin_sw7: Pin<Gpio5, FunctionSioInput, PullUp>,
         pin_sw8: Pin<Gpio7, FunctionSioInput, PullUp>,
     ) -> Self {
-        Self {
+        Switches {
             gpio0: Some(Gpio0Mode::Input(gpio0)),
             gpio1,
             pin_sw2,
@@ -112,34 +115,34 @@ impl Switches {
         }
     }
 
-    // pull-ups: pressed = pin reads low
+    // these all use pull-ups, so pressed means the pin reads low
     pub fn upd(&mut self, now: u64) {
         self.upd_shared(now);
         self.upd_std(now);
     }
 
-    // sw1 and sw5 share gp0/gp1
+    // sw1 and sw5 share gp0/gp1, so they need a couple extra steps
     fn upd_shared(&mut self, now: u64) {
-        // the mode is always put back before this function returns, so this
-        // can't actually stay empty across calls
-        let mode = self.gpio0.take().expect("gpio0 mode not restored from last update");
+        // this is always Some going in, put it back at the end
+        let mode = self.gpio0.take().unwrap();
 
-        // 1. gp0 as input -> read sw1
-        let mut input = match mode {
+        // step 1: make sure gp0 is set as an input, then read sw1 off it
+        let mut input_pin = match mode {
             Gpio0Mode::Input(pin) => pin,
             Gpio0Mode::Output(pin) => pin.into_pull_up_input(),
         };
-        self.states[0].update(input.is_low().unwrap(), now);
+        self.states[0].update(input_pin.is_low().unwrap(), now);
 
-        // 2. gp0 as output low -> it becomes the ground for sw5 (read on gp1)
-        let mut output = input.into_push_pull_output();
-        output.set_low().unwrap();
+        // step 2: flip gp0 to an output and pull it low, this grounds sw5
+        // so can read whether it's pressed over on gp1
+        let mut output_pin = input_pin.into_push_pull_output();
+        output_pin.set_low().unwrap();
         self.states[4].update(self.gpio1.is_low().unwrap(), now);
 
-        self.gpio0 = Some(Gpio0Mode::Output(output));
+        self.gpio0 = Some(Gpio0Mode::Output(output_pin));
     }
 
-    // all the switches with their own pin
+    // the rest of the switches each have their own dedicated pin
     fn upd_std(&mut self, now: u64) {
         self.states[1].update(self.pin_sw2.is_low().unwrap(), now);
         self.states[2].update(self.pin_sw3.is_low().unwrap(), now);
