@@ -7,7 +7,7 @@ type PinA = Pin<Gpio10, FunctionSioInput, PullUp>;
 type PinB = Pin<Gpio8, FunctionSioInput, PullUp>;
 type GndPin = Pin<Gpio9, FunctionSioOutput, PullDown>;
 
-// what happened since the last update
+// what happened to the encoder since the last update
 pub enum Rot {
     None,
     Cw,
@@ -16,13 +16,16 @@ pub enum Rot {
 
 pub struct Encoder {
     rot: Rotary<PinA, PinB, DefaultPhase>,
-    _gnd: GndPin, // gp9 is wired to the encoder's gnd pin
+    _gnd: GndPin, // gp9 is wired straight to the encoder's gnd pin
 }
 
 impl Encoder {
     pub fn new(pin_a: PinA, pin_b: PinB, mut gnd: GndPin) -> Self {
-        gnd.set_low().unwrap(); // give the encoder a ground
-        Self { rot: Rotary::new(pin_a, pin_b), _gnd: gnd }
+        gnd.set_low().unwrap(); // give the encoder a ground to use
+        Encoder {
+            rot: Rotary::new(pin_a, pin_b),
+            _gnd: gnd,
+        }
     }
 
     pub fn upd(&mut self) -> Rot {

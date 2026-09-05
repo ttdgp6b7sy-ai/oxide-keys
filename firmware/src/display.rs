@@ -14,6 +14,8 @@ use rp2040_hal::gpio::{FunctionNull, FunctionSioOutput, FunctionSpi, Pin, PullDo
 use rp2040_hal::pac::{RESETS, SPI0};
 use rp2040_hal::spi::Spi;
 
+// wraps the ili9341 driver plus the backlight pin so main.rs doesn't have
+// to know about the driver's generic types
 pub struct Lcd<DI, RST>
 where
     DI: display_interface::WriteOnlyDataCommand,
@@ -42,7 +44,7 @@ pub fn build(
         sck.into_function::<FunctionSpi>(),
     );
 
-    // 16 MHz seems to be the sweet spot for this panel, higher gets flaky
+    // 16 MHz seems to be the sweet spot for this panel, anything higher gets flaky
     let spi_bus = Spi::<_, _, _, 8>::new(spi0, spi_pins).init(
         resets,
         peri_clock_freq,
@@ -50,10 +52,9 @@ pub fn build(
         embedded_hal::spi::MODE_0,
     );
 
-    // SPIInterface needs an SpiDevice (bus + cs handling), not a bare bus,
-    // and we're the only thing on this bus so there's nothing to share
+    // only device on this bus, so no need to share
     let spi_device = ExclusiveDevice::new_no_delay(spi_bus, cs.into_push_pull_output())
-        .expect("failed to drive the display cs pin");
+        .expect("could not set up the display cs pin");
 
     let iface = SPIInterface::new(spi_device, dc.into_push_pull_output());
 
@@ -64,7 +65,7 @@ pub fn build(
         Orientation::Portrait,
         DisplaySize240x320,
     )
-    .expect("ili9341 init failed, check the wiring");
+    .expect("ili9341 init failed, double check the wiring");
 
     drv.clear(Rgb565::BLACK).expect("initial clear failed");
 
@@ -87,13 +88,13 @@ where
         let style = MonoTextStyle::new(&FONT_6X10, color);
         Text::new(s, Point::new(x, y), style)
             .draw(&mut self.drv)
-            .expect("text draw failed");
+            .expect("failed to draw text");
     }
 
     pub fn dot(&mut self, x: i32, y: i32, color: Rgb565) {
         Circle::new(Point::new(x, y), 12)
             .into_styled(PrimitiveStyle::with_fill(color))
             .draw(&mut self.drv)
-            .expect("dot draw failed");
+            .expect("failed to draw dot");
     }
 }
