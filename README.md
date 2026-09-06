@@ -4,7 +4,7 @@ A mini game console with 8 keys and a display, which has the ability to play ver
 The hardware is mainly composed of an 8-key mini game player with rotary encoder, LCD display that folds on a hinge, and RGB underglow on the Raspberry Pi Pico W, where I aim to include as much Rust as I can in this project.
 
 ![Oxide Keys Pcb Board](docs/images/oxidekeyspcb.png)
-![Wokwi CI](https://github.com/YOUR_USERNAME/oxide-keys/actions/workflows/wokwi.yml/badge.svg)
+![Wokwi CI](https://github.com/ttdgp6b7sy-ai/oxide-keys/actions/workflows/wokwi.yml/badge.svg)
 
 ## Demo
 No physical build yet but the image above shows the PCB board to be made.
