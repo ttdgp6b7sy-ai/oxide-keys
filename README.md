@@ -8,7 +8,7 @@ The hardware is mainly composed of an 8-key mini game player with rotary encoder
 
 ## Demo
 No physical build yet but the image above shows the PCB board to be made.
-
+![Oxide Keys running in simulation](firmware/wokwi-screenshot.png)
 
 ## Quickstart
 Hardware was made on KiCad, with the PCB board and schematics, you can open hardware/pcb to view this. The cargo build was made from firmware and can be cargo built, cd firmware && cargo build. Also the Cad enclosure utilises the mount standoffs instead of being 3d in enclosure/
