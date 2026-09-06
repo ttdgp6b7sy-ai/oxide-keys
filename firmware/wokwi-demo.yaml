@@ -1,0 +1,48 @@
+name: 'Oxide Keys demo'
+version: 1
+author: 'ren'
+steps:
+  - delay: 1000ms
+  - take-screenshot:
+      part-id: lcd1
+      save-to: frames/frame01.png
+  - set-control:
+      part-id: sw1
+      control: pressed
+      value: 1
+  - delay: 300ms
+  - take-screenshot:
+      part-id: lcd1
+      save-to: frames/frame02.png
+  - set-control:
+      part-id: sw1
+      control: pressed
+      value: 0
+  - set-control:
+      part-id: sw3
+      control: pressed
+      value: 1
+  - delay: 300ms
+  - take-screenshot:
+      part-id: lcd1
+      save-to: frames/frame03.png
+  - set-control:
+      part-id: sw3
+      control: pressed
+      value: 0
+  - set-control:
+      part-id: sw6
+      control: pressed
+      value: 1
+  - delay: 300ms
+  - take-screenshot:
+      part-id: lcd1
+      save-to: frames/frame04.png
+  - set-control:
+      part-id: sw6
+      control: pressed
+      value: 0
+  - delay: 300ms
+  - take-screenshot:
+      part-id: lcd1
+      save-to: frames/frame05.png
