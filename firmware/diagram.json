@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "author": "ren",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-pi-pico-w", "id": "pico", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-pushbutton", "id": "sw1", "top": -160, "left": -260, "attrs": {} },
+    { "type": "wokwi-pushbutton", "id": "sw2", "top": -110, "left": -260, "attrs": {} },
+    { "type": "wokwi-pushbutton", "id": "sw3", "top": -160, "left": -210, "attrs": {} },
+    { "type": "wokwi-pushbutton", "id": "sw4", "top": -110, "left": -210, "attrs": {} },
+    { "type": "wokwi-pushbutton", "id": "sw5", "top": -160, "left": -160, "attrs": {} },
+    { "type": "wokwi-pushbutton", "id": "sw6", "top": -110, "left": -160, "attrs": {} },
+    { "type": "wokwi-pushbutton", "id": "sw7", "top": -160, "left": -110, "attrs": {} },
+    { "type": "wokwi-pushbutton", "id": "sw8", "top": -110, "left": -110, "attrs": {} },
+    { "type": "wokwi-ky-040", "id": "re1", "top": -160, "left": 60, "attrs": {} },
+    { "type": "wokwi-buzzer", "id": "bz1", "top": 120, "left": -260, "attrs": { "volume": "0.1" } },
+    { "type": "wokwi-ili9341", "id": "lcd1", "top": -320, "left": -80, "attrs": {} }
+  ],
+  "connections": [
+    [ "sw1:1.l", "pico:GP0", "green", [] ],
+    [ "sw1:2.l", "pico:GND.1", "black", [] ],
+    [ "sw5:1.l", "pico:GP1", "green", [] ],
+    [ "sw5:2.l", "pico:GP0", "orange", [] ],
+    [ "sw2:1.l", "pico:GP2", "green", [] ],
+    [ "sw2:2.l", "pico:GND.1", "black", [] ],
+    [ "sw3:1.l", "pico:GP4", "green", [] ],
+    [ "sw3:2.l", "pico:GND.1", "black", [] ],
+    [ "sw4:1.l", "pico:GP6", "green", [] ],
+    [ "sw4:2.l", "pico:GND.1", "black", [] ],
+    [ "sw6:1.l", "pico:GP3", "green", [] ],
+    [ "sw6:2.l", "pico:GND.1", "black", [] ],
+    [ "sw7:1.l", "pico:GP5", "green", [] ],
+    [ "sw7:2.l", "pico:GND.1", "black", [] ],
+    [ "sw8:1.l", "pico:GP7", "green", [] ],
+    [ "sw8:2.l", "pico:GND.1", "black", [] ],
+
+    [ "re1:CLK", "pico:GP10", "yellow", [] ],
+    [ "re1:DT", "pico:GP8", "orange", [] ],
+    [ "re1:GND", "pico:GP9", "gray", [] ],
+    [ "re1:VCC", "pico:3V3", "red", [] ],
+
+    [ "bz1:1", "pico:GP15", "purple", [] ],
+    [ "bz1:2", "pico:GND.2", "black", [] ],
+
+    [ "lcd1:CS", "pico:GP17", "blue", [] ],
+    [ "lcd1:D/C", "pico:GP20", "blue", [] ],
+    [ "lcd1:RST", "pico:GP21", "blue", [] ],
+    [ "lcd1:MOSI", "pico:GP19", "blue", [] ],
+    [ "lcd1:SCK", "pico:GP18", "blue", [] ],
+    [ "lcd1:MISO", "pico:GP16", "blue", [] ],
+    [ "lcd1:LED", "pico:GP22", "yellow", [] ],
+    [ "lcd1:VCC", "pico:3V3", "red", [] ],
+    [ "lcd1:GND", "pico:GND.3", "black", [] ]
+  ]
+}
