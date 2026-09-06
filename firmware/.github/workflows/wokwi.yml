@@ -1,0 +1,35 @@
+name: Wokwi Simulation
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  simulate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Rust target
+        run: rustup target add thumbv6m-none-eabi
+
+      - name: Build firmware
+        run: cargo build --release
+        working-directory: firmware
+
+      - name: Run Wokwi simulation
+        uses: wokwi/wokwi-ci-action@v1
+        with:
+          token: ${{ secrets.WOKWI_CLI_TOKEN }}
+          path: firmware
+          timeout: 5000
+          screenshot_part: lcd1
+          screenshot_time: 4000
+          screenshot_file: wokwi-screenshot.png
+
+      - name: Upload screenshot
+        uses: actions/upload-artifact@v4
+        with:
+          name: wokwi-screenshot
+          path: firmware/wokwi-screenshot.png
