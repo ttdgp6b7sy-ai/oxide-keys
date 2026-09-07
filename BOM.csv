@@ -3,10 +3,10 @@ Raspberry Pi Pico W,1,9.90,7.11,Core Electronics,https://core-electronics.com.au
 Piezo Buzzer,1,0.34,0.24,Core Electronics,https://core-electronics.com.au/piezo-buzzer.html,Core Electronics,
 LiPo Battery 3.7V 1100mAh,1,8.65,6.21,Core Electronics,https://core-electronics.com.au/polymer-lithium-ion-battery-1000mah-38458.html,Core Electronics,
 Core Electronics Shipping,1,7.00,5.03,Core Electronics,https://core-electronics.com.au/policies-faq,Core Electronics,Standard Post
-Cherry MX White Switch pack (PCB-mount),1,6.50,4.69,Mechstock,https://www.mechstock.com.au/products/cherry-mx2a-orange?_pos=4&_sid=44973a2d5&_ss=r,Mechstock,
+Cherry MX2A Orange Switch pack (10x),1,6.50,4.69,Mechstock,https://www.mechstock.com.au/products/cherry-mx2a-orange,Mechstock,
 Mechstock Shipping,1,7.50,5.39,Mechstock,https://www.mechstock.com.au/pages/shipping-policy-2025,Mechstock,Standard Post (est.)
 Rotary Encoder Switch (SR1230),1,10.25,7.36,Jaycar,https://www.jaycar.com.au/rotary-encoder-switch-with-pushbutton/p/SR1230,Jaycar,
-Silicone Wire 2m ,1,4.95,3.57,Jaycar,https://amzn.asia/d/07A7hcWb,Ozchillon,
+Silicone Wire 2m (28AWG Red + Black),1,4.95,3.57,Amazon AU,https://www.amazon.com.au/Ozchillon-28AWG-Flexible-Silicone-Black/dp/B0FTVY5H6M,Amazon AU,
 Pin Header Strip 40-way (M+F),1,2.95,2.12,Jaycar,https://www.jaycar.com.au/pcb-pins-and-headers/c/1HJ,Jaycar,
 1N4148 Diode Pack (5x),1,0.95,0.68,Jaycar,https://www.jaycar.com.au/1n4148-1n914-signal-diode-pack-of-5/p/ZR1100,Jaycar,
 "2.4"" TFT LCD Touch Display (ILI9341)",1,10.00,7.22,Createunsw,https://store.createunsw.com.au/2-4-arduino-touchscreen-module,createunsw,
@@ -15,15 +15,17 @@ Clear Acrylic Sheet A5 3mm,2,8.96,6.43,Amazon AU,https://www.amazon.com.au/Clear
 Knurled Encoder Knob (2pc),1,7.34,5.27,Core-electronics,https://core-electronics.com.au/slim-rubber-rotary-encoder-knob-11-5mm-x-14-5mm-d-shaft.html,Core Electronics,
 PBT Blank Keycaps (37pc),1,15.99,11.48,Amazon AU,https://www.amazon.com.au/Fulillanlun-Keycaps-Mechanical-Keyboard-Keybord/dp/B0G1YWJ15D,Amazon AU,
 Amazon AU Shipping (order all 4 together),1,0.00,0.00,Amazon AU,https://www.amazon.com.au/,Amazon AU,Free (combined order over threshold)
-SK6812MINI-E RGBW LED pack (x15),1,1.70,1.21,LCSC,https://www.lcsc.com/product-detail/C5149201.html,LCSC,
-TP4056 Li-ion Charger IC,1,1.00,0.70,LCSC,https://www.lcsc.com/,LCSC,
-AP2112K-3.3 LDO Regulator,1,0.20,0.14,LCSC,https://www.lcsc.com/product-detail/C51118.html,LCSC,
-330 Ohm 0805 Resistor pack (x2),1,0.20,0.14,LCSC,https://www.lcsc.com/,LCSC,
-1uF 0805 Capacitor pack (x2),2,0.25,0.18,LCSC,https://www.lcsc.com/,LCSC,
-LCSC Shipping,1,7.00,5.03,LCSC,https://www.lcsc.com/,LCSC,DHL Express
+SK6812MINI RGB LED pack (x20),2,3.00,2.15,KEEBD,https://keebd.com/products/sk6812mini-rgb-led,KEEBD,
+KEEBD Shipping,1,9.59,6.88,KEEBD,https://keebd.com/,KEEBD,Standard Post
+TP4056 Li-ion Charger IC (harvest from TP4056 module),1,6.35,4.56,Little Bird Electronics,https://littlebirdelectronics.com.au/products/arduino-compatible-lithium-battery-usb-charger-module,Little Bird Electronics,In-store pickup / Sydney stock
+AP2112K-3.3 LDO Regulator,1,10.65,7.65,RS Australia,https://au.rs-online.com/web/p/voltage-regulators/8283509,RS Australia,
+330 Ohm 0805 Resistor pack (50x),1,0.80,0.57,RS Australia,https://au.rs-online.com/web/p/surface-mount-resistors/2230354,RS Australia,
+1uF 0805 Capacitor pack (50x),1,5.60,4.02,RS Australia,https://au.rs-online.com/web/p/mlccs-multilayer-ceramic-capacitors/6911167,RS Australia,
+RS Australia Shipping,1,20.00,14.36,RS Australia,https://au.rs-online.com/web/content/support/all-articles/delivery,RS Australia,Private/Guest order under $80
+LCSC Shipping,1,7.00,5.03,LCSC,https://www.lcsc.com/,LCSC,REMOVED - no LCSC order
 Brass Hinges (2-pack),1,7.94,5.70,Bunnings,https://www.bunnings.com.au/prestige-15-x-25-x-0-5mm-decorative-brass-hinges_p3968293,Bunnings,
 Bunnings Shipping,1,0.00,0.00,Bunnings,https://www.bunnings.com.au/,Bunnings,In-store / Click & Collect
-PARTS TOTAL (counted toward $120 budget),,154.78,110.58,,,,
+PARTS TOTAL (counted toward $120 budget),,201.17,144.49,,,,
 JLCPCB 4-Layer PCB Fab (already paid - not counted),1,4.00,2.75,JLCPCB,https://jlcpcb.com/,JLCPCB,Already shipped
 "--- Optional, not counted above ---",,,,,,,
 Soldering Iron Kit (optional),1,25.00,17.95,Amazon AU,https://www.amazon.com.au/Soldering-Iron-Kit-Rechargeable-Temperature/dp/B0DYH7QMYK,Optional,
