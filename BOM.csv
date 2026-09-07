@@ -1,7 +1,7 @@
 Part,Quantity,Price_AUD,Price_USD,Supplier,Link,Group,Shipping
 Raspberry Pi Pico W,1,9.90,7.11,Core Electronics,https://core-electronics.com.au/raspberry-pi-pico-w-wireless-wifi.html,Core Electronics,
 Piezo Buzzer,1,0.34,0.24,Core Electronics,https://core-electronics.com.au/piezo-buzzer.html,Core Electronics,
-LiPo Battery 3.7V 1100mAh,1,8.65,6.21,Core Electronics,https://core-electronics.com.au/polymer-lithium-ion-battery-1000mah-38458.html,Core Electronics,
+LiPo Battery 3.7V 1100mAh,1,10.15,7.29,Tempero Systems,https://temperosystems.com.au/products/603450-lithium-ion-polymer-battery-lipo-3-7v-1100mah/,Tempero Systems,
 Core Electronics Shipping,1,7.00,5.03,Core Electronics,https://core-electronics.com.au/policies-faq,Core Electronics,Standard Post
 Cherry MX2A Orange Switch pack (10x),1,6.50,4.69,Mechstock,https://www.mechstock.com.au/products/cherry-mx2a-orange,Mechstock,
 Mechstock Shipping,1,7.50,5.39,Mechstock,https://www.mechstock.com.au/pages/shipping-policy-2025,Mechstock,Standard Post (est.)
@@ -17,15 +17,13 @@ PBT Blank Keycaps (37pc),1,15.99,11.48,Amazon AU,https://www.amazon.com.au/Fulil
 Amazon AU Shipping (order all 4 together),1,0.00,0.00,Amazon AU,https://www.amazon.com.au/,Amazon AU,Free (combined order over threshold)
 SK6812MINI RGB LED pack (x20),2,3.00,2.15,KEEBD,https://keebd.com/products/sk6812mini-rgb-led,KEEBD,
 KEEBD Shipping,1,9.59,6.88,KEEBD,https://keebd.com/,KEEBD,Standard Post
-TP4056 Li-ion Charger IC (harvest from TP4056 module),1,6.35,4.56,Little Bird Electronics,https://littlebirdelectronics.com.au/products/arduino-compatible-lithium-battery-usb-charger-module,Little Bird Electronics,In-store pickup / Sydney stock
-AP2112K-3.3 LDO Regulator,1,10.65,7.65,RS Australia,https://au.rs-online.com/web/p/voltage-regulators/8283509,RS Australia,
-330 Ohm 0805 Resistor pack (50x),1,0.80,0.57,RS Australia,https://au.rs-online.com/web/p/surface-mount-resistors/2230354,RS Australia,
-1uF 0805 Capacitor pack (50x),1,5.60,4.02,RS Australia,https://au.rs-online.com/web/p/mlccs-multilayer-ceramic-capacitors/6911167,RS Australia,
-RS Australia Shipping,1,20.00,14.36,RS Australia,https://au.rs-online.com/web/content/support/all-articles/delivery,RS Australia,Private/Guest order under $80
-LCSC Shipping,1,7.00,5.03,LCSC,https://www.lcsc.com/,LCSC,REMOVED - no LCSC order
-Brass Hinges (2-pack),1,7.94,5.70,Bunnings,https://www.bunnings.com.au/prestige-15-x-25-x-0-5mm-decorative-brass-hinges_p3968293,Bunnings,
+TP4056 Li-ion Charger IC (harvest from domestic TP4056 module),1,3.99,2.87,Tempero Systems,https://temperosystems.com.au/products/tp4056-mini-usb-1a-5v-lithium-battery-charger-copy/,Tempero Systems,
+AP2112K-3.3 LDO Regulator,1,5.23,3.76,Amazon AU,https://www.amazon.com.au/,Amazon AU,Included in combined Amazon AU shipping
+330 Ohm 0805 Resistor pack (10x),1,1.40,1.01,Altronics,https://www.altronics.com.au/electronic-components/carbon-film-resistors/?prdv=330R,Altronics,
+1uF 0805 Capacitor pack (50x),1,13.95,10.01,Phipps Electronics,https://www.phippselectronics.com/product/16v-1uf-0805-ceramic-smd-capacitor-pack-of-50/,Phipps Electronics,
+Brass Hinges (2-pack),1,7.94,5.70,Bunnings,https://www.bunnings.com.au/prestige-15-x-25-x-0-5mm-decorative-brass-hinges_p3968293,Bunnings,In-store / Click & Collect
 Bunnings Shipping,1,0.00,0.00,Bunnings,https://www.bunnings.com.au/,Bunnings,In-store / Click & Collect
-PARTS TOTAL (counted toward $120 budget),,201.17,144.49,,,,
+PARTS TOTAL (before AP2112K domestic replacement),,157.78,113.43,,,,
 JLCPCB 4-Layer PCB Fab (already paid - not counted),1,4.00,2.75,JLCPCB,https://jlcpcb.com/,JLCPCB,Already shipped
 "--- Optional, not counted above ---",,,,,,,
 Soldering Iron Kit (optional),1,25.00,17.95,Amazon AU,https://www.amazon.com.au/Soldering-Iron-Kit-Rechargeable-Temperature/dp/B0DYH7QMYK,Optional,
