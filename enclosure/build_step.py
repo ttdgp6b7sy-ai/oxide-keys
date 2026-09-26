@@ -53,20 +53,23 @@ def centered_box(width, depth, height, x, y, bottom):
 def switch_model(x, y):
     """MX footprint clearance shape; upper housing rests on the 3 mm deck."""
     lower = centered_box(10, 10, 6.49, x, y, 1.51)
+    neck = centered_box(14, 14, 3, x, y, 5)
     upper = centered_box(15.6, 15.6, 3.5, x, y, 8)
     stem = centered_box(4, 4, 3.5, x, y, 11.5)
-    return lower.union(upper).union(stem)
+    return lower.union(neck).union(upper).union(stem)
 
 
 def led_model(x, y):
     """SK6812MINI package and visible window at the KiCad D1-D8 pads."""
     package = centered_box(3.5, 3.5, 1.1, x, y, 1.51)
     window = centered_box(2.2, 2.2, 0.15, x, y, 2.61)
-    return package.union(window)
+    return package, window
 
 
 def keycap_model(x, y):
-    cap = centered_box(18, 18, 7, x, y, 14.5).edges(">Z").chamfer(1.1)
+    cap = (cq.Workplane("XY").workplane(offset=14.5).rect(18, 18)
+           .workplane(offset=7).rect(15.4, 15.4).loft()
+           .edges(">Z").fillet(0.45).translate((x, y, 0)))
     socket = centered_box(4.2, 4.2, 2, x, y, 14.5)
     return cap.cut(socket)
 
@@ -177,7 +180,9 @@ def main():
     pcb = cq.importers.importStep(str(PCB_STEP)).translate((-82.5, 101.75, 0))
     placed = placed_footprints()
     switches = {f"SW{n}": switch_model(*placed[f"SW{n}"]) for n in range(1, 9)}
-    leds = {f"D{n}": led_model(*placed[f"D{n}"]) for n in range(1, 9)}
+    led_parts = {f"D{n}": led_model(*placed[f"D{n}"]) for n in range(1, 9)}
+    leds = {ref: parts[0] for ref, parts in led_parts.items()}
+    led_lenses = {ref: parts[1] for ref, parts in led_parts.items()}
     keycaps = {f"K{n}": keycap_model(*placed[f"SW{n}"]) for n in range(1, 9)}
     display_board, display_bezel, display_glass = display_parts()
     knob = cq.Workplane("XY").circle(5.75).extrude(14.5).translate(
@@ -197,6 +202,11 @@ def main():
         volume = sum(piece.Volume() for piece in overlap.solids().vals())
         if volume > 0.001:
             raise ValueError(f"Switch deck intersects KiCad STEP solid {index}: {volume:.3f} mm^3")
+    for ref, part in switches.items():
+        overlap = top.intersect(part)
+        volume = sum(piece.Volume() for piece in overlap.solids().vals())
+        if volume > 0.001:
+            raise ValueError(f"Switch deck intersects {ref}: {volume:.3f} mm^3")
 
     spacers = []
     for circle in dimensions(base_group, "circle"):
@@ -222,6 +232,8 @@ def main():
         include(part, f"H{i} 25 x 15 mm brass hinge - illustrative", (0.68, 0.52, 0.20), "hinges")
     for i, part in enumerate(fasteners, 1):
         include(part, f"M2 nylon screw {i} - nominal", (0.74, 0.74, 0.69), "fasteners")
+    for ref, part in led_lenses.items():
+        include(part, f"{ref} LED lens", (0.94, 0.71, 0.39), "led-lenses")
 
     cq.exporters.export(base, str(OUT / "base-plate.step"))
     cq.exporters.export(top, str(OUT / "switch-deck.step"))
@@ -239,7 +251,7 @@ def main():
     for ref, part in switches.items():
         assembly.add(part, name=f"{ref} Cherry MX2A Orange - review geometry", color=cq.Color(0.18, 0.18, 0.19))
     for ref, part in leds.items():
-        assembly.add(part, name=f"{ref} SK6812MINI - review geometry", color=cq.Color(0.93, 0.76, 0.42))
+        assembly.add(part, name=f"{ref} SK6812MINI housing - review geometry", color=cq.Color(0.85, 0.84, 0.78))
     for part, name, color, _ in extras:
         assembly.add(part, name=name, color=color)
     assembly.add(base, name="3mm base plate", color=cq.Color(0.78, 0.82, 0.85, 0.45))
@@ -272,7 +284,7 @@ def main():
     for ref, part in switches.items():
         compact.add(part, name=f"{ref} Cherry MX2A Orange - review geometry")
     for ref, part in leds.items():
-        compact.add(part, name=f"{ref} SK6812MINI - review geometry")
+        compact.add(part, name=f"{ref} SK6812MINI housing - review geometry")
     for part, name, _, _ in extras:
         compact.add(part, name=name)
     compact.add(base, name="3mm base plate")

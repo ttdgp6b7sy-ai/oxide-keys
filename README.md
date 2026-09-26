@@ -16,7 +16,7 @@ The hardware is mainly composed of an 8-key mini game player with rotary encoder
 
 Production files: [CAD](production/cad/) · [UF2 firmware](production/firmware/oxide-keys.uf2) · [firmware source package](production/firmware/firmware-source.zip) · [Gerbers](production/gerbers.zip). I added the switches, LEDs, keycaps, display, knob, battery and hinges to the CAD. The extra switches and LEDs in the BOM are spares. I still need to test fit the acrylic and hinges when I get the parts.
 
-The display linked in [BOM.csv](BOM.csv) is an 8-bit Arduino shield, but my PCB and Rust code use SPI. I need an SPI display instead before I buy the parts. The 1N4148 pack in the BOM also isn't on the PCB.
+The display linked in [BOM.csv](BOM.csv) is an 8-bit Arduino shield, but my PCB and Rust code use SPI. I also found that the display header on the PCB ties GPIO16 and GPIO19 together, and the screen pins don't match the Rust code. I need to fix the wiring and choose an SPI display before building it. The 1N4148 pack in the BOM also isn't on the PCB.
 
 ## Demo
 No physical build yet but the image above shows the PCB board to be made.
