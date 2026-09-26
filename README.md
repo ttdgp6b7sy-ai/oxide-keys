@@ -9,10 +9,24 @@ The hardware is mainly composed of an 8-key mini game player with rotary encoder
 ## CAD views
 ![Oxide Keys PCB and acrylic enclosure CAD](docs/images/cad-overview.png)
 ![Oxide Keys CAD from the side](docs/images/cad-side.png)
+![Switch and LED placement with the deck removed and switch housings transparent](docs/images/cad-switch-led-placement.png)
 
 [Assembly STEP](production/cad/OxideKeys-review-assembly-detailed.step) · [Enclosure SVG](enclosure/Oxidekeysenclosure.svg) · [Gerbers](production/gerbers.zip) · [Firmware UF2](production/firmware/oxide-keys.uf2)
 
-The enclosure still needs a test fit with the display and hinges before cutting.
+The assembly includes eight separately named Cherry MX2A Orange switch clearance models
+(`SW1`–`SW8`) and eight SK6812MINI LED package models (`D1`–`D8`) at their
+actual KiCad footprint positions. The last image omits the acrylic deck and
+makes the switch housings transparent to show the LEDs; the downloadable STEP
+keeps all parts at assembly height.
+The LEDs sit toward one edge of each switch rather than directly under its stem.
+These are review shapes, not manufacturer STEP models. The BOM purchases spare
+switches and LEDs; only eight of each go on the board.
+
+This is still an incomplete physical assembly: the BOM's particular display
+module, keycaps, encoder knob, battery, charging module, hinges and fasteners
+have not been fitted as verified part models. The 3 mm acrylic switch mounting,
+LED light path and display/hinge clearance need a physical fit check before
+cutting or claiming the build is ready to assemble.
 
 ## Demo
 No physical build yet but the image above shows the PCB board to be made.
