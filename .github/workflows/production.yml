@@ -28,6 +28,16 @@ jobs:
             firmware/target/thumbv6m-none-eabi/release/oxide-keys \
             production/firmware/oxide-keys.uf2
 
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Build CAD and README views
+        run: |
+          python -m pip install 'cadquery==2.7.0' 'matplotlib==3.10.6'
+          python enclosure/build_step.py
+          python enclosure/render_cad.py
+
       - name: Expand detailed CAD assembly
         run: |
           gzip -dc production/cad/OxideKeys-review-assembly-detailed.step.gz \
@@ -73,6 +83,6 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add production/firmware/oxide-keys.uf2 production/firmware/BUILD.txt \
-            production/cad/OxideKeys-review-assembly-detailed.step
-          git commit -m 'Add built RP2040 UF2 and detailed STEP assembly'
+            production/cad/*.step production/cad/*.step.gz docs/images/cad-*.png
+          git commit -m 'Build verified firmware and enclosure review models'
           git push origin HEAD:main

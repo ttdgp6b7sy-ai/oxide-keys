@@ -4,11 +4,13 @@ Requires cadquery. Run from the repository root with:
     python enclosure/build_step.py
 
 The 3 mm sheet, 6 mm spacers, and open flap angle are assembly assumptions.
-Measure the actual material, switches, display, and hinges before cutting.
+The new openings clear the modeled header, buzzer and controller. Measure the
+actual material, switches, display, fasteners and hinges before cutting.
 """
 
 from pathlib import Path
 import gzip
+import re
 import shutil
 import tempfile
 import xml.etree.ElementTree as ET
@@ -61,6 +63,17 @@ def panel(group, bottom, cut_rects):
                 (x + w / 2, BOARD_HEIGHT - y - h / 2, bottom + THICKNESS / 2)
             )
             part = part.cut(tool)
+    for path in group.findall("svg:path", NS):
+        if path.attrib.get("id") != "header_switch_clearance":
+            continue
+        points = [
+            (float(x), BOARD_HEIGHT - float(y))
+            for x, y in re.findall(r"([\d.]+),([\d.]+)", path.attrib["d"])
+        ]
+        tool = cq.Workplane("XY").polyline(points).close().extrude(
+            THICKNESS + 2
+        ).translate((0, 0, bottom - 1))
+        part = part.cut(tool)
     return part
 
 
@@ -74,7 +87,9 @@ def main():
 
     # Base top is z=-6; the 6 mm spacers then end at the PCB underside (z=0).
     base = panel(base_group, -9.0, set())
-    top = panel(top_group, 5.0, {f"rect{i}" for i in range(8, 17)})
+    top = panel(top_group, 5.0, {f"rect{i}" for i in range(8, 17)} | {
+        "buzzer_clearance", "controller_clearance"
+    })
     flap = box_from_rect(dimensions(flap_group, "rect")[0], 5.0)
     # Illustrative open position around the back edge of the top sheet.
     flap = flap.translate((0, -BOARD_HEIGHT, -5)).rotate(
@@ -84,6 +99,11 @@ def main():
     # KiCad's exported PCB is translated from its drawing origin. The board's
     # 97.75 x 91.5 mm outline then occupies x=0..97.75, y=0..91.5.
     pcb = cq.importers.importStep(str(PCB_STEP)).translate((-82.5, 101.75, 0))
+    for index, solid in enumerate(pcb.solids().vals()):
+        overlap = top.intersect(cq.Workplane("XY").newObject([solid]))
+        volume = sum(piece.Volume() for piece in overlap.solids().vals())
+        if volume > 0.001:
+            raise ValueError(f"Switch deck intersects KiCad STEP solid {index}: {volume:.3f} mm^3")
 
     spacers = []
     for circle in dimensions(base_group, "circle"):
