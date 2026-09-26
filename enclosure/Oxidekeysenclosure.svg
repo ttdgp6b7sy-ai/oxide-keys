@@ -211,15 +211,17 @@
        style="fill:none;stroke:#000000;stroke-opacity:1" />
     <rect x="23.1" y="56.64" width="53.3" height="22" id="controller_clearance"
        style="fill:none;stroke:#000000;stroke-opacity:1" />
-    <!-- Display flap outline: 72 x 55 mm. Confirm the module dimensions before cutting. -->
+    <!-- 78 x 64 mm flap for the BOM's 72.2 x 52.7 mm MAR2406 board.
+         Its 8-bit interface is incompatible with the SPI display wiring;
+         the exact hinge and module mounting still require a physical test. -->
     <g
        id="lcd_flap"
        style="fill:none;fill-opacity:1;stroke:#000000;stroke-opacity:1">
       <rect
-         x="5"
-         y="-55"
-         width="72"
-         height="55"
+         x="3"
+         y="-64"
+         width="78"
+         height="64"
          id="rect17"
          style="fill:none;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
       <!-- Hinge mounting keep-clear zones, 25mm each, straddling the shared edge (dashed = reference only, not a cut) -->
