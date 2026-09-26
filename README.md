@@ -10,9 +10,9 @@ The hardware is mainly composed of an 8-key mini game player with rotary encoder
 ![Oxide Keys PCB and acrylic enclosure CAD](docs/images/cad-overview.png)
 ![Oxide Keys CAD from the side](docs/images/cad-side.png)
 
-[Review assembly STEP (provisional)](production/cad/OxideKeys-review-assembly.step) · [Detailed assembly STEP](production/cad/OxideKeys-review-assembly-detailed.step) · [Laser-cut source SVG](enclosure/Oxidekeysenclosure.svg)
+[Assembly STEP](production/cad/OxideKeys-review-assembly-detailed.step) · [Enclosure SVG](enclosure/Oxidekeysenclosure.svg) · [Gerbers](production/gerbers.zip) · [Firmware UF2](production/firmware/oxide-keys.uf2)
 
-Production files: [CAD](production/cad/) · [UF2 firmware](production/firmware/oxide-keys.uf2) · [firmware source package](production/firmware/firmware-source.zip) · [Gerbers](production/gerbers.zip). The enclosure is a review model; measure the purchased parts and test fit the hinges before the final cut.
+The enclosure still needs a test fit with the display and hinges before cutting.
 
 ## Demo
 No physical build yet but the image above shows the PCB board to be made.
@@ -32,14 +32,11 @@ Hardware was made on KiCad, with the PCB board and schematics, you can open hard
 - Uses a pico W as the controller.
 - firmware stack includes embedded hal, probers and rp2040 hal. It lives in firmware/ and builds with cargo build
 - display sits on a hinge now
-- fullparts list is in the BOM.csv -> 117 USD.
+- fullparts list is in [BOM.csv](BOM.csv).
 - the cad enclosure that I am incorporating uses a 2d laser cut acrylic with mounted standoffs in between. Meaning that I can still incorporate cool aesthetics with the layer being transparent on purpose.
 
 ## Todo
 The potential of the encoder knob in some games is something I want to explore.
-
-## How it works
-Will explain once started build.
 
 ## Credits
 credits to stardance for inspo + help.
