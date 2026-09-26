@@ -1,0 +1,19 @@
+CAD
+  pcbfirstdesign.step: KiCad export supplied on 2026-09-26.
+  OxideKeys-review-assembly.step: PCB outline, component-size envelopes,
+  base plate, switch deck, display flap and four illustrative spacers.
+  OxideKeys-review-assembly-detailed.step.gz: the same assembly with the
+  full available KiCad component geometry. Decompress it to get the STEP.
+  Plate outlines and cutouts come from
+  enclosure/Oxidekeysenclosure.svg. The 3 mm sheet thickness, 6 mm spacer
+  height, and 65 degree open flap position are assumptions, not measurements.
+  The display module, hinge hardware, keycaps and fasteners are not modeled.
+  Check physical clearance and laser kerf against actual parts before cutting.
+
+FIRMWARE
+  firmware/firmware-source.zip contains the editable Rust source, lockfile,
+  linker memory file and Cargo target configuration. No verified ELF or UF2
+  is included. It has not been built in this environment.
+
+PCB
+  gerbers.zip is copied without modification from hardware/gerbers/gerbers.zip.
