@@ -1,2 +1,2 @@
-Built from source commit 633da7a50771ebeb9a075c944b7a18f72c890f3f by GitHub Actions.
+Built from source commit 46ce5aa7d7d9b064bb1096aa789476ccfe2e1f4f by GitHub Actions.
 UF2 format and RP2040 address range validated; hardware flashing remains untested.
