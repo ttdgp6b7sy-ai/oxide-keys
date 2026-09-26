@@ -1,0 +1,75 @@
+name: Build production files
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build RP2040 firmware
+        run: |
+          rustup target add thumbv6m-none-eabi
+          cargo install flip-link --locked
+          cargo build --release --locked --manifest-path firmware/Cargo.toml
+
+      - name: Convert firmware to UF2
+        run: |
+          cargo install elf2uf2-rs --locked
+          elf2uf2-rs convert --family rp2040 \
+            firmware/target/thumbv6m-none-eabi/release/oxide-keys \
+            production/firmware/oxide-keys.uf2
+
+      - name: Expand detailed CAD assembly
+        run: |
+          gzip -dc production/cad/OxideKeys-review-assembly-detailed.step.gz \
+            > production/cad/OxideKeys-review-assembly-detailed.step
+          cmp production/cad/OxideKeys-review-assembly-detailed.step \
+            <(gzip -dc production/cad/OxideKeys-review-assembly-detailed.step.gz)
+
+      - name: Validate outputs
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from struct import unpack_from
+
+          uf2 = Path('production/firmware/oxide-keys.uf2').read_bytes()
+          assert uf2 and len(uf2) % 512 == 0
+          count = len(uf2) // 512
+          for index in range(count):
+              block = uf2[index * 512:(index + 1) * 512]
+              magic0, magic1, flags, address, size, number, total, family = unpack_from('<8I', block)
+              assert (magic0, magic1) == (0x0A324655, 0x9E5D5157)
+              assert unpack_from('<I', block, 508)[0] == 0x0AB16F30
+              assert flags & 0x2000 and family == 0xE48BFF56
+              assert number == index and total == count and 0 < size <= 476
+              assert 0x10000000 <= address < 0x10200000
+          step = Path('production/cad/OxideKeys-review-assembly-detailed.step').read_bytes()
+          assert step.startswith(b'ISO-10303-21;')
+          assert step.rstrip().endswith(b'END-ISO-10303-21;')
+          print(f'Validated {count} UF2 blocks and {len(step)} STEP bytes')
+          PY
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: oxide-keys-production
+          path: |
+            production/firmware/oxide-keys.uf2
+            production/cad/OxideKeys-review-assembly-detailed.step
+          if-no-files-found: error
+
+      - name: Commit production files
+        run: |
+          printf 'Built from source commit %s by GitHub Actions.\nUF2 format and RP2040 address range validated; hardware flashing remains untested.\n' \
+            "$GITHUB_SHA" > production/firmware/BUILD.txt
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add production/firmware/oxide-keys.uf2 production/firmware/BUILD.txt \
+            production/cad/OxideKeys-review-assembly-detailed.step
+          git commit -m 'Add built RP2040 UF2 and detailed STEP assembly'
+          git push origin HEAD:main

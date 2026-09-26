@@ -3,7 +3,8 @@ CAD
   OxideKeys-review-assembly.step: PCB outline, component-size envelopes,
   base plate, switch deck, display flap and four illustrative spacers.
   OxideKeys-review-assembly-detailed.step.gz: the same assembly with the
-  full available KiCad component geometry. Decompress it to get the STEP.
+  full available KiCad component geometry. The production workflow also
+  expands it to OxideKeys-review-assembly-detailed.step.
   Plate outlines and cutouts come from
   enclosure/Oxidekeysenclosure.svg. The 3 mm sheet thickness, 6 mm spacer
   height, and 65 degree open flap position are assumptions, not measurements.
@@ -12,8 +13,9 @@ CAD
 
 FIRMWARE
   firmware/firmware-source.zip contains the editable Rust source, lockfile,
-  linker memory file and Cargo target configuration. No verified ELF or UF2
-  is included. It has not been built in this environment.
+  linker memory file and Cargo target configuration. The production workflow
+  builds oxide-keys.uf2 from the repo source and checks its UF2 block format.
+  BUILD.txt records the exact source commit. Flashing on hardware is untested.
 
 PCB
   gerbers.zip is copied without modification from hardware/gerbers/gerbers.zip.
