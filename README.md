@@ -7,33 +7,16 @@ The hardware is mainly composed of an 8-key mini game player with rotary encoder
 ![Wokwi CI](https://github.com/ttdgp6b7sy-ai/oxide-keys/actions/workflows/wokwi.yml/badge.svg)
 
 ## CAD views
-![Board with eight switches and caps, display, knob and fasteners; acrylic hidden to show the components](docs/images/cad-overview.png)
-![Acrylic enclosure and display flap from the side](docs/images/cad-side.png)
-![Eight LEDs beside the switch footprints, with the deck removed and switch housings transparent](docs/images/cad-switch-led-placement.png)
-![Battery location under the PCB](docs/images/cad-battery.png)
+![Oxide Keys with the parts in place](docs/images/cad-overview.png)
+![Oxide Keys CAD from the side](docs/images/cad-side.png)
+![Switches and LEDs on the PCB](docs/images/cad-switch-led-placement.png)
+![Battery below the PCB](docs/images/cad-battery.png)
 
-[Assembly STEP](production/cad/OxideKeys-review-assembly-detailed.step) · [Enclosure SVG](enclosure/Oxidekeysenclosure.svg) · [Gerbers](production/gerbers.zip) · [Firmware UF2](production/firmware/oxide-keys.uf2)
+[Assembly STEP](production/cad/OxideKeys-review-assembly-detailed.step) · [Enclosure SVG](enclosure/Oxidekeysenclosure.svg)
 
-The STEP assembly shows the eight Cherry MX2A Orange switches (`SW1`–`SW8`),
-eight SK6812MINI LEDs (`D1`–`D8`), eight blank keycaps, encoder knob, battery,
-TP4056 charger IC, display board, two brass hinges, acrylic plates, four M2
-standoffs and fasteners. The KiCad export supplies the PCB, Pico W, buzzer,
-encoder, header and the components that have 3D models. The LEDs sit toward
-one edge of each switch rather than directly under its stem. Spare parts,
-shipping, raw sheet and wire stock are purchase quantities, not fitted parts.
+Production files: [CAD](production/cad/) · [UF2 firmware](production/firmware/oxide-keys.uf2) · [firmware source package](production/firmware/firmware-source.zip) · [Gerbers](production/gerbers.zip). I added the switches, LEDs, keycaps, display, knob, battery and hinges to the CAD. The extra switches and LEDs in the BOM are spares. I still need to test fit the acrylic and hinges when I get the parts.
 
-**Display mismatch:** the BOM links to the MAR2406 Arduino shield. Its [manual](https://www.lcdwiki.com/res/MAR2406/2.4inch_Arduino_8BIT_Module_MAR2406_User_Manual_EN.pdf)
-specifies an 8-bit parallel interface and a 72.2 × 52.7 mm board. The schematic
-and Rust firmware instead use an SPI ILI9341 module. The CAD now represents the
-listed shield's board size and screen area on a larger flap, but it will not
-operate from the current display wiring. The 1N4148 pack in the BOM also has
-no fitted footprint on the current PCB.
-
-The added parts are named review geometry, not manufacturer STEP files.
-Battery placement beneath the PCB uses 10 mm standoffs; switch clips in 3 mm
-acrylic, light path, hinge mounting and clearances still need measurements or a
-physical test fit. Do not cut the enclosure or buy the parallel display as a
-drop-in replacement for the SPI module on the basis of these renders.
+The display linked in [BOM.csv](BOM.csv) is an 8-bit Arduino shield, but my PCB and Rust code use SPI. I need an SPI display instead before I buy the parts. The 1N4148 pack in the BOM also isn't on the PCB.
 
 ## Demo
 No physical build yet but the image above shows the PCB board to be made.
