@@ -23,8 +23,8 @@ jobs:
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y libudev-dev
-          cargo install elf2uf2-rs --locked
-          elf2uf2-rs convert --family rp2040 \
+          cargo install elf2uf2-rs --version 2.2.0 --locked
+          elf2uf2-rs \
             firmware/target/thumbv6m-none-eabi/release/oxide-keys \
             production/firmware/oxide-keys.uf2
 
