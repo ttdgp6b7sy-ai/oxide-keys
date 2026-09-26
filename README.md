@@ -12,7 +12,7 @@ The hardware is mainly composed of an 8-key mini game player with rotary encoder
 
 [Review assembly STEP (provisional)](production/cad/OxideKeys-review-assembly.step) · [Detailed assembly STEP](production/cad/OxideKeys-review-assembly-detailed.step) · [Laser-cut source SVG](enclosure/Oxidekeysenclosure.svg)
 
-Production files: [CAD](production/cad/) · [firmware source package](production/firmware/firmware-source.zip) · [Gerbers](production/gerbers.zip).
+Production files: [CAD](production/cad/) · [UF2 firmware](production/firmware/oxide-keys.uf2) · [firmware source package](production/firmware/firmware-source.zip) · [Gerbers](production/gerbers.zip). See [production status](production/STATUS.txt) for the remaining fit checks.
 
 ## Demo
 No physical build yet but the image above shows the PCB board to be made.

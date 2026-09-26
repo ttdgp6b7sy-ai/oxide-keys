@@ -9,13 +9,17 @@ CAD
   enclosure/Oxidekeysenclosure.svg. The 3 mm sheet thickness, 6 mm spacer
   height, and 65 degree open flap position are assumptions, not measurements.
   The display module, hinge hardware, keycaps and fasteners are not modeled.
-  Check physical clearance and laser kerf against actual parts before cutting.
+  Geometry check: the upper sheet intersects three available PCB component
+  models (about 17, 176 and 3 cubic mm respectively). The spacer ends now
+  touch the PCB underside, but the upper sheet still needs a clearance and
+  mounting revision. Check physical fit and laser kerf before cutting.
 
 FIRMWARE
   firmware/firmware-source.zip contains the editable Rust source, lockfile,
   linker memory file and Cargo target configuration. The production workflow
   builds oxide-keys.uf2 from the repo source and checks its UF2 block format.
   BUILD.txt records the exact source commit. Flashing on hardware is untested.
+  GitHub Actions builds the firmware and runs the Wokwi simulation.
 
 PCB
   gerbers.zip is copied without modification from hardware/gerbers/gerbers.zip.
