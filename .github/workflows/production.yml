@@ -13,10 +13,11 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Build RP2040 firmware
+        working-directory: firmware
         run: |
           rustup target add thumbv6m-none-eabi
           cargo install flip-link --locked
-          cargo build --release --locked --manifest-path firmware/Cargo.toml
+          cargo build --release --locked
 
       - name: Convert firmware to UF2
         run: |

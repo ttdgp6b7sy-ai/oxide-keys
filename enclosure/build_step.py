@@ -72,7 +72,8 @@ def main():
     assert base_group is not None and top_group is not None and flap_group is not None
     OUT.mkdir(parents=True, exist_ok=True)
 
-    base = panel(base_group, -10.5, set())
+    # Base top is z=-6; the 6 mm spacers then end at the PCB underside (z=0).
+    base = panel(base_group, -9.0, set())
     top = panel(top_group, 5.0, {f"rect{i}" for i in range(8, 17)})
     flap = box_from_rect(dimensions(flap_group, "rect")[0], 5.0)
     # Illustrative open position around the back edge of the top sheet.
@@ -88,7 +89,7 @@ def main():
     for circle in dimensions(base_group, "circle"):
         x, y = float(circle["cx"]), BOARD_HEIGHT - float(circle["cy"])
         spacers.append(cq.Workplane("XY").circle(2.5).circle(1.1).extrude(6).translate(
-            (x, y, -7.5)
+            (x, y, -6.0)
         ))
 
     cq.exporters.export(base, str(OUT / "base-plate.step"))
