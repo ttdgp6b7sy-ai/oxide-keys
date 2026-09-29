@@ -4,6 +4,8 @@ A mini game console with 8 keys and a display, which has the ability to play ver
 The hardware is mainly composed of an 8-key mini game player with rotary encoder, LCD display that folds on a hinge, and RGB underglow on the Raspberry Pi Pico W, where I aim to include as much Rust as I can in this project.
 
 ![Oxide Keys Pcb Board](docs/images/oxidekeyspcb.png)
+
+[![View PCB on KiCanvas](https://hack.club/pcb-badge)](https://kicanvas.org/?repo=https://github.com/ttdgp6b7sy-ai/oxide-keys/tree/main/hardware/pcb)
 ![Wokwi CI](https://github.com/ttdgp6b7sy-ai/oxide-keys/actions/workflows/wokwi.yml/badge.svg)
 
 ## CAD views
@@ -44,3 +46,38 @@ The potential of the encoder knob in some games is something I want to explore.
 
 ## Credits
 credits to stardance for inspo + help.
+
+## Bill of materials
+
+The source BOM with supplier links is in [BOM.csv](BOM.csv).
+
+| Part | Quantity | Price AUD | Supplier | Link |
+| --- | ---: | ---: | --- | --- |
+| Raspberry Pi Pico W | 1 | 9.90 | Core Electronics | [link](https://core-electronics.com.au/raspberry-pi-pico-w-wireless-wifi.html) |
+| Piezo Buzzer | 1 | 0.34 | Core Electronics | [link](https://core-electronics.com.au/piezo-buzzer.html) |
+| LiPo Battery 3.7V 1100mAh | 1 | 10.15 | Tempero Systems | [link](https://temperosystems.com.au/products/603450-lithium-ion-polymer-battery-lipo-3-7v-1100mah/) |
+| Core Electronics Shipping | 1 | 7.00 | Core Electronics | [link](https://core-electronics.com.au/policies-faq) |
+| Cherry MX2A Orange Switch pack (10x) | 1 | 6.50 | Mechstock | [link](https://www.mechstock.com.au/products/cherry-mx2a-orange) |
+| Mechstock Shipping | 1 | 7.50 | Mechstock | [link](https://www.mechstock.com.au/pages/shipping-policy-2025) |
+| Rotary Encoder Switch (SR1230) | 1 | 10.25 | Jaycar | [link](https://www.jaycar.com.au/rotary-encoder-switch-with-pushbutton/p/SR1230) |
+| Silicone Wire 2m (28AWG Red + Black) | 1 | 4.95 | Amazon AU | [link](https://www.amazon.com.au/Ozchillon-28AWG-Flexible-Silicone-Black/dp/B0FTVY5H6M) |
+| Pin Header Strip 40-way (M+F) | 1 | 2.95 | Jaycar | [link](https://www.jaycar.com.au/pcb-pins-and-headers/c/1HJ) |
+| 1N4148 Diode Pack (5x) | 1 | 0.95 | Jaycar | [link](https://www.jaycar.com.au/1n4148-1n914-signal-diode-pack-of-5/p/ZR1100) |
+| 2.4" TFT LCD Touch Display (ILI9341) | 1 | 10.00 | Createunsw | [link](https://store.createunsw.com.au/2-4-arduino-touchscreen-module) |
+| M2 Nylon Standoff Kit (180pc) | 1 | 15.00 | Amazon AU | [link](https://www.amazon.com.au/Aolidsive-Standoff-Assortment-Motherboard-Projects/dp/B0GYBV21GF) |
+| Clear Acrylic Sheet A5 3mm | 2 | 8.96 | Amazon AU | [link](https://www.amazon.com.au/Clear-Acrylic-Sheet-3mm-Thickness/dp/B0F4PN42ZM) |
+| Knurled Encoder Knob (2pc) | 1 | 7.34 | Core-electronics | [link](https://core-electronics.com.au/slim-rubber-rotary-encoder-knob-11-5mm-x-14-5mm-d-shaft.html) |
+| PBT Blank Keycaps (37pc) | 1 | 15.99 | Amazon AU | [link](https://www.amazon.com.au/Fulillanlun-Keycaps-Mechanical-Keyboard-Keybord/dp/B0G1YWJ15D) |
+| Amazon AU Shipping (order all 4 together) | 1 | 0.00 | Amazon AU | [link](https://www.amazon.com.au/) |
+| SK6812MINI RGB LED pack (x20) | 2 | 3.00 | KEEBD | [link](https://keebd.com/products/sk6812mini-rgb-led) |
+| KEEBD Shipping | 1 | 9.59 | KEEBD | [link](https://keebd.com/) |
+| TP4056 Li-ion Charger IC (harvest from domestic TP4056 module) | 1 | 3.99 | Tempero Systems | [link](https://temperosystems.com.au/products/tp4056-mini-usb-1a-5v-lithium-battery-charger-copy/) |
+| AP2112K-3.3 LDO Regulator | 1 | 5.23 | Amazon AU | [link](https://www.amazon.com.au/) |
+| 330 Ohm 0805 Resistor pack (10x) | 1 | 1.40 | Altronics | [link](https://www.altronics.com.au/electronic-components/carbon-film-resistors/?prdv=330R) |
+| 1uF 0805 Capacitor pack (50x) | 1 | 13.95 | Phipps Electronics | [link](https://www.phippselectronics.com/product/16v-1uf-0805-ceramic-smd-capacitor-pack-of-50/) |
+| Brass Hinges (2-pack) | 1 | 7.94 | Bunnings | [link](https://www.bunnings.com.au/prestige-15-x-25-x-0-5mm-decorative-brass-hinges_p3968293) |
+| Bunnings Shipping | 1 | 0.00 | Bunnings | [link](https://www.bunnings.com.au/) |
+| PARTS TOTAL (before AP2112K domestic replacement) |  | 157.78 |  |  |
+| JLCPCB 4-Layer PCB Fab (already paid - not counted) | 1 | 4.00 | JLCPCB | [link](https://jlcpcb.com/) |
+| --- Optional, not counted above --- |  |  |  |  |
+| Soldering Iron Kit (optional) | 1 | 25.00 | Amazon AU | [link](https://www.amazon.com.au/Soldering-Iron-Kit-Rechargeable-Temperature/dp/B0DYH7QMYK) |
