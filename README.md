@@ -67,8 +67,8 @@ The source BOM with supplier links is in [BOM.csv](BOM.csv).
 | M2 Nylon Standoff Kit (180pc) | 1 | 15.00 | Amazon AU | [link](https://www.amazon.com.au/Aolidsive-Standoff-Assortment-Motherboard-Projects/dp/B0GYBV21GF) |
 | Clear Acrylic Sheet A5 3mm | 2 | 8.96 | Amazon AU | [link](https://www.amazon.com.au/Clear-Acrylic-Sheet-3mm-Thickness/dp/B0F4PN42ZM) |
 | Knurled Encoder Knob (2pc) | 1 | 7.34 | Core-electronics | [link](https://core-electronics.com.au/slim-rubber-rotary-encoder-knob-11-5mm-x-14-5mm-d-shaft.html) |
-| PBT Blank Keycaps (37pc) | 1 | 15.99 | Amazon AU | [link](https://www.amazon.com.au/Fulillanlun-Keycaps-Mechanical-Keyboard-Keybord/dp/B0G1YWJ15D) |
-| Amazon AU Shipping (order all 4 together) | 1 | 0.00 | Amazon AU | [link](https://www.amazon.com.au/) |
+| PBT Blank Keycaps (37pc) | 1 | 15.99 | AliExpress | [link](https://www.aliexpress.com/w/wholesale-blank-pbt-keycaps.html) |
+| Amazon AU Shipping (order remaining Amazon items together) | 1 | 0.00 | Amazon AU | [link](https://www.amazon.com.au/) |
 | SK6812MINI RGB LED pack (x20) | 2 | 3.00 | KEEBD | [link](https://keebd.com/products/sk6812mini-rgb-led) |
 | KEEBD Shipping | 1 | 9.59 | KEEBD | [link](https://keebd.com/) |
 | TP4056 Li-ion Charger IC (harvest from domestic TP4056 module) | 1 | 3.99 | Tempero Systems | [link](https://temperosystems.com.au/products/tp4056-mini-usb-1a-5v-lithium-battery-charger-copy/) |
