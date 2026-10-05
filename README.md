@@ -77,8 +77,8 @@ The source BOM with supplier links is in [BOM.csv](BOM.csv).
 | 1uF 0805 Capacitor pack (50x) | 1 | 13.95 | Phipps Electronics | [link](https://www.phippselectronics.com/product/16v-1uf-0805-ceramic-smd-capacitor-pack-of-50/) |
 | Brass Hinges (2-pack) | 1 | 7.94 | Bunnings | [link](https://www.bunnings.com.au/prestige-15-x-25-x-0-5mm-decorative-brass-hinges_p3968293) |
 | Bunnings Shipping | 1 | 0.00 | Bunnings | [link](https://www.bunnings.com.au/) |
-| PARTS TOTAL (before AP2112K domestic replacement) |  | 148.79 |  |  |
-| JLCPCB 4-Layer PCB Fab (already paid - not counted) | 1 | 4.00 | JLCPCB | [link](https://jlcpcb.com/) |
+| TOTAL (including PCB fabrication) |  | 161.79 |  |  |
+| JLCPCB 4-Layer PCB Fab | 1 | 13.00 | JLCPCB | [link](https://jlcpcb.com/) |
 | --- Optional, not counted above --- |  |  |  |  |
 | Desertcart M2 Mounting Screw Kit (60pc) | 1 | 10.00 | Desertcart Australia | [link](https://www.desertcart.com.au/products/600128736-m2-ssd-screws-kit-pcie-nvme-m-2-ssd-mounting) |
 | Soldering Iron Kit (optional) | 1 | 25.00 | Amazon AU | [link](https://www.amazon.com.au/Soldering-Iron-Kit-Rechargeable-Temperature/dp/B0DYH7QMYK) |
