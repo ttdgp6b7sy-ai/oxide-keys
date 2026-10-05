@@ -80,4 +80,5 @@ The source BOM with supplier links is in [BOM.csv](BOM.csv).
 | PARTS TOTAL (before AP2112K domestic replacement) |  | 157.78 |  |  |
 | JLCPCB 4-Layer PCB Fab (already paid - not counted) | 1 | 4.00 | JLCPCB | [link](https://jlcpcb.com/) |
 | --- Optional, not counted above --- |  |  |  |  |
+| Desertcart M2 Mounting Screw Kit (60pc) | 1 | 10.00 | Desertcart Australia | [link](https://www.desertcart.com.au/products/600128736-m2-ssd-screws-kit-pcie-nvme-m-2-ssd-mounting) |
 | Soldering Iron Kit (optional) | 1 | 25.00 | Amazon AU | [link](https://www.amazon.com.au/Soldering-Iron-Kit-Rechargeable-Temperature/dp/B0DYH7QMYK) |
