@@ -1,6 +1,7 @@
 # Oxide Keys
 
 A mini game console with 8 keys and a display, which has the ability to play very simple games to kill time and also a fun way to integrate Rust (the language I am learning).
+
 The hardware is mainly composed of an 8-key mini game player with rotary encoder, LCD display that folds on a hinge, and RGB underglow on the Raspberry Pi Pico W, where I aim to include as much Rust as I can in this project.
 
 ![Oxide Keys Pcb Board](docs/images/oxidekeyspcb.png)
@@ -16,14 +17,9 @@ The hardware is mainly composed of an 8-key mini game player with rotary encoder
 
 [Assembly STEP](production/cad/OxideKeys-review-assembly-detailed.step) · [Enclosure SVG](enclosure/Oxidekeysenclosure.svg)
 
-Production files: [CAD](production/cad/) · [UF2 firmware](production/firmware/oxide-keys.uf2) · [firmware source package](production/firmware/firmware-source.zip) · [Gerbers](production/gerbers.zip). I added the switches, LEDs, keycaps, display, knob, battery and hinges to the CAD. The extra switches and LEDs in the BOM are spares. I still need to test fit the acrylic and hinges when I get the parts.
-
-The display linked in [BOM.csv](BOM.csv) is an 8-bit Arduino shield, but my PCB and Rust code use SPI. I also found two PCB issues: SW5 has no ground, and the display header joins GPIO16 and GPIO19 while its other pins don't match the Rust code. I need to sort out the board and choose an SPI display before building it. The 1N4148 pack in the BOM also isn't on the PCB.
 
 ## Demo
 No physical build yet but the image above shows the PCB board to be made.
-
-![Oxide Keys running in simulation](firmware/wokwi-demo.gif)
 
 ## Quickstart
 Hardware was made on KiCad, with the PCB board and schematics, you can open hardware/pcb to view this. The cargo build was made from firmware and can be cargo built, cd firmware && cargo build. Also the Cad enclosure utilises the mount standoffs instead of being 3d in enclosure/
