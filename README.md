@@ -29,13 +29,13 @@ No physical build yet but the image above shows the PCB board to be made.
 
 ## Quickstart
 
-**0. Get the files**
-Clone the repo, or click Code → Download ZIP on GitHub and extract it
+**Get the files**
+Clone the repo or download extract zip from github repo.
 `git clone https://github.com/ttdgp6b7sy-ai/oxide-keys.git`
 `cd oxide-keys`
 
 **Flash the firmware**
-1. Hold the BOOTSEL button on the pico W while plugging it into USB, it will appear as a drive.
+1. Hold the bootsel button on the pico W while plugging it into USB, it will appear as a drive.
 2. Drag `firmware/oxide-keys.uf2` onto that drive and then it reboots on its own.
 
 **Build the firmware yourself**
@@ -43,7 +43,7 @@ Clone the repo, or click Code → Download ZIP on GitHub and extract it
 2. `rustup target add thumbv6m-none-eabi`
 3. `cargo install flip-link elf2uf2-rs --locked`
 4. `cd firmware`, then `cargo build --release`
-5.  convert to UF2: `elf2uf2-rs target/thumbv6m-none-eabi/release/oxide-keys oxide-keys.uf2`, then drag it onto the Pico as above
+5.  convert to UF2: `elf2uf2-rs target/thumbv6m-none-eabi/release/oxide-keys oxide-keys.uf2`, then drag it onto the pico as above
 
 **3d model**
 The full assembly is `cad/OxideKeys-review-assembly-detailed.step`
