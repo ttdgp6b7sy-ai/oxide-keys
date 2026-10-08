@@ -7,8 +7,8 @@ import numpy as np
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / 'docs/images'
-CAD = ROOT / 'production/cad'
+OUT = ROOT / 'assets/images'
+CAD = ROOT / 'cad'
 SIZE = (1600, 1150)
 BACKGROUND = np.array((249, 248, 245), dtype=np.uint8)
 

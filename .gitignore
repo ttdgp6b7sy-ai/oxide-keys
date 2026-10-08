@@ -1,2 +1,7 @@
 target/
 firmware/screenshot.png
+.DS_Store
+*.zip
+*.gz
+__pycache__/
+.DS_Store

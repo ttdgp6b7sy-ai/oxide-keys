@@ -4,25 +4,25 @@ A mini game console with 8 keys and a display, which has the ability to play ver
 
 The hardware is mainly composed of an 8-key mini game player with rotary encoder, LCD display that folds on a hinge, and RGB underglow on the Raspberry Pi Pico W, where I aim to include as much Rust as I can in this project.
 
-![Oxide Keys Pcb Board](docs/images/oxidekeyspcb.png)
+![Oxide Keys Pcb Board](assets/images/oxidekeyspcb.png)
 
-[![View PCB on KiCanvas](https://hack.club/pcb-badge)](https://kicanvas.org/?repo=https://github.com/ttdgp6b7sy-ai/oxide-keys/tree/main/hardware/pcb)
+[![View PCB on KiCanvas](https://hack.club/pcb-badge)](https://kicanvas.org/?repo=https://github.com/ttdgp6b7sy-ai/oxide-keys/tree/main/pcb)
 ![Wokwi CI](https://github.com/ttdgp6b7sy-ai/oxide-keys/actions/workflows/wokwi.yml/badge.svg)
 
 ## CAD views
-![Oxide Keys with the parts in place](docs/images/cad-overview.png)
-![Oxide Keys CAD from the side](docs/images/cad-side.png)
-![Switches and LEDs on the PCB](docs/images/cad-switch-led-placement.png)
-![Battery below the PCB](docs/images/cad-battery.png)
+![Oxide Keys with the parts in place](assets/images/cad-overview.png)
+![Oxide Keys CAD from the side](assets/images/cad-side.png)
+![Switches and LEDs on the PCB](assets/images/cad-switch-led-placement.png)
+![Battery below the PCB](assets/images/cad-battery.png)
 
-[Assembly STEP](production/cad/OxideKeys-review-assembly-detailed.step) · [Enclosure SVG](enclosure/Oxidekeysenclosure.svg)
+[Assembly STEP](cad/OxideKeys-review-assembly-detailed.step) · [Enclosure SVG](cad/Oxidekeysenclosure.svg)
 
 
 ## Demo
 No physical build yet but the image above shows the PCB board to be made.
 
 ## Quickstart
-Hardware was made on KiCad, with the PCB board and schematics, you can open hardware/pcb to view this. The cargo build was made from firmware and can be cargo built, cd firmware && cargo build. Also the Cad enclosure utilises the mount standoffs instead of being 3d in enclosure/
+Hardware was made on KiCad, with the PCB board and schematics, you can open pcb to view this. The cargo build was made from firmware and can be cargo built, cd firmware && cargo build. Also the Cad enclosure utilises the mount standoffs instead of being 3d in enclosure/
 
 
 ## Features that I will implement

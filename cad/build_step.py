@@ -1,7 +1,7 @@
 """Build a review model from KiCad placements and the enclosure SVG.
 
 Requires cadquery. Run from the repository root with:
-    python enclosure/build_step.py
+    python cad/build_step.py
 
 The component shapes below are placement and clearance models, not manufacturer
 CAD. The BOM display is an 8-bit parallel Arduino shield; the circuit and Rust
@@ -9,19 +9,17 @@ firmware are wired for an SPI display, so this model does not validate function.
 """
 
 from pathlib import Path
-import gzip
 import re
-import shutil
 import xml.etree.ElementTree as ET
 
 import cadquery as cq
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SVG = ROOT / "enclosure/Oxidekeysenclosure.svg"
-PCB_STEP = ROOT / "production/cad/pcbfirstdesign.step"
-PCB_LAYOUT = ROOT / "hardware/pcb/pcbfirstdesign.kicad_pcb"
-OUT = ROOT / "production/cad"
+SVG = ROOT / "cad/Oxidekeysenclosure.svg"
+PCB_STEP = ROOT / "cad/pcbfirstdesign.step"
+PCB_LAYOUT = ROOT / "pcb/pcbfirstdesign.kicad_pcb"
+OUT = ROOT / "cad"
 THICKNESS = 3.0
 BOARD_WIDTH = 97.75
 BOARD_HEIGHT = 91.5
@@ -259,40 +257,9 @@ def main():
     assembly.add(flap, name="3mm display flap - open position", color=cq.Color(0.78, 0.82, 0.85, 0.45))
     for index, spacer in enumerate(spacers, 1):
         assembly.add(spacer, name=f"illustrative spacer {index}", color=cq.Color(0.68, 0.66, 0.62))
-    # Keep the complete component geometry, while offering a smaller STEP that
-    # opens directly in CAD programs and can be downloaded from the repo.
+    # Full component geometry, saved as the repo's review assembly.
     detailed_step = OUT / "OxideKeys-review-assembly-detailed.step"
     assembly.save(str(detailed_step))
-    with detailed_step.open("rb") as source, (OUT / "OxideKeys-review-assembly-detailed.step.gz").open("wb") as target:
-        with gzip.GzipFile(filename="", mode="wb", fileobj=target, mtime=0) as compressed:
-            shutil.copyfileobj(source, compressed)
-
-    compact = cq.Assembly(name="Oxide Keys review assembly - component envelopes")
-    pcb_solids = pcb.solids().vals()
-    board = max(pcb_solids, key=lambda solid: solid.Volume())
-    compact.add(board, name="PCB outline and holes", color=cq.Color(0.12, 0.31, 0.24))
-    for index, solid in enumerate(pcb_solids, 1):
-        if solid is board:
-            continue
-        bounds = solid.BoundingBox()
-        envelope = cq.Workplane("XY").box(bounds.xlen, bounds.ylen, bounds.zlen).translate(
-            ((bounds.xmin + bounds.xmax) / 2,
-             (bounds.ymin + bounds.ymax) / 2,
-             (bounds.zmin + bounds.zmax) / 2)
-        )
-        compact.add(envelope, name=f"Component envelope {index}", color=cq.Color(0.35, 0.35, 0.37))
-    for ref, part in switches.items():
-        compact.add(part, name=f"{ref} Cherry MX2A Orange - review geometry")
-    for ref, part in leds.items():
-        compact.add(part, name=f"{ref} SK6812MINI housing - review geometry")
-    for part, name, _, _ in extras:
-        compact.add(part, name=name)
-    compact.add(base, name="3mm base plate")
-    compact.add(top, name="3mm switch deck")
-    compact.add(flap, name="3mm display flap - open position")
-    for index, spacer in enumerate(spacers, 1):
-        compact.add(spacer, name=f"Illustrative spacer {index}")
-    compact.save(str(OUT / "OxideKeys-review-assembly.step"))
 
 
 if __name__ == "__main__":
