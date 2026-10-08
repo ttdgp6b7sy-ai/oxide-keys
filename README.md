@@ -21,9 +21,32 @@ The hardware is mainly composed of an 8-key mini game player with rotary encoder
 ## Demo
 No physical build yet but the image above shows the PCB board to be made.
 
-## Quickstart
-Hardware was made on KiCad, with the PCB board and schematics, you can open pcb to view this. The cargo build was made from firmware and can be cargo built, cd firmware && cargo build. Also the Cad enclosure utilises the mount standoffs instead of being 3d in enclosure/
+## Location of stuff
+- `firmware/` Rust code for the Pico W
+- `pcb/` KiCad project and gerbers
+- `cad/` 3D model and layout for enclosure
+- `BOM.csv` parts list
 
+## Quickstart
+
+**0. Get the files**
+Clone the repo, or click Code → Download ZIP on GitHub and extract it
+`git clone https://github.com/ttdgp6b7sy-ai/oxide-keys.git`
+`cd oxide-keys`
+
+**Flash the firmware**
+1. Hold the BOOTSEL button on the pico W while plugging it into USB, it will appear as a drive.
+2. Drag `firmware/oxide-keys.uf2` onto that drive and then it reboots on its own.
+
+**Build the firmware yourself**
+1. install rust from https://rustup.rs if you haven't already
+2. `rustup target add thumbv6m-none-eabi`
+3. `cargo install flip-link elf2uf2-rs --locked`
+4. `cd firmware`, then `cargo build --release`
+5.  convert to UF2: `elf2uf2-rs target/thumbv6m-none-eabi/release/oxide-keys oxide-keys.uf2`, then drag it onto the Pico as above
+
+**3d model**
+The full assembly is `cad/OxideKeys-review-assembly-detailed.step`
 
 ## Features that I will implement
 - The switches are designed so that each key is important in navigating the screen where I want to create a launcher which you can scroll through a section of simple games similar to pong and space invader that I create. These keys will be assigned certain roles in the future such as selecting, navigation (mimicking the hjkl keys etc), and the amount of keys allows a wide use-case in games that I will develop specifically for this device.
